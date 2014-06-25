@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Gatjie Kermit Thang</title>
+  <style>
+  body {
+    margin:0px;
+    padding:0px;
+    text-align:center;
+  }
+  
+  div.lane
+  {
+    clear: left;   
+	height: 30px;
+	width: 9999px;
+	background: #555;
+	padding: 5px;
+	position: relative;
+	left: -50px;
+  }
+  
+  div.lane span {
+    float: left;
+	height:100%;
+  }
+  
+  span.gap {
+    width: 40px;
+	
+  }
+  
+  span.gap2 {
+    width: 80px;
+  }
+  
+  span.gap4 {
+    width: 160px;
+  }
+  
+  span.bus {
+   background:#F00;
+   width: 80px;   
+  }
+  
+  span.taxi {
+   background:#CC0;
+   width: 30px;   
+  }
+  
+  
+  span.car {
+   background:#0C0;
+   width: 30px;   
+  }
+  
+  div.board {
+     width:600px;
+	 background:#DDD;
+     overflow: hidden;
+  }
+  
+
+  </style>
+  </head>
+  <body>
+  <div class="board">
+  <div id="lane1" class="lane"><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span></div>
+  <div id="lane2" class="lane"><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span></div>
+  <div id="lane3" class="lane"><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span></div>
+  <div id="lane4" class="lane"><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span></div>
+  <div id="lane5" class="lane"><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span></div>
+  <div id="lane6" class="lane"><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span></div>
+  </div>
+  
+  <script type="text/javascript">
+  
+  function GameLoop(timeStamp) {
+        positionLane("lane1",timeStamp,50,280);
+		positionLane("lane2",timeStamp,20,230);
+		positionLane("lane3",timeStamp,160,270);
+		positionLane("lane4",timeStamp,-80,430);
+		positionLane("lane5",timeStamp,-120,190);
+		positionLane("lane6",timeStamp,-20,240);
+		
+		window.requestAnimationFrame(GameLoop);  
+		
+  }
+  
+  function positionLane(name,timeStamp,spd,repeat)
+  {
+      var val=(timeStamp*spd/1000)%repeat-repeat;
+	  document.getElementById(name).style.left=val.toString()+"px";
+  }
+	
+  window.requestAnimationFrame(GameLoop);  
+  
+  
+  
+  
+  
+  
+  </script> 
+  </body>
+</html>
