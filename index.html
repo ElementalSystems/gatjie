@@ -16,7 +16,20 @@
 	background: #555;
 	padding: 5px;
 	position: relative;
-	left: -50px;
+  }
+  
+  div.lane.divider
+  {
+    height: 15px;
+	background: #050;
+	
+  }
+  
+  div.lane.edge
+  {
+    height: 50px;
+	background: #080;
+	
   }
   
   div.lane span {
@@ -57,19 +70,35 @@
      width:600px;
 	 background:#DDD;
      overflow: hidden;
+	 position: relative;
+  }
+  
+  div.avatar {
+     width:20px;
+	 height:20px;
+	 background: #00F;
+	 position: absolute;
+	 left:25px;
+	 top:50px;
   }
   
 
   </style>
   </head>
   <body>
+  <br>
+  
   <div class="board">
+  <div class="lane edge" data-speed=0 data-repeat=270></div>
   <div class="lane" data-speed=50 data-repeat=280><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span></div>
   <div class="lane" data-speed=20 data-repeat=230><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span></div>
   <div class="lane" data-speed=160 data-repeat=270><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span></div>
+  <div class="lane divider" data-speed=0 data-repeat=270></div>
   <div class="lane" data-speed=-80 data-repeat=430><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span></div>
   <div class="lane" data-speed=-120 data-repeat=190><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span></div>
   <div class="lane" data-speed=-20 data-repeat=240><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span></div>
+  <div class="lane edge" data-speed=0 data-repeat=270></div>
+  <div class="avatar" >U<div>
   </div>
   
   <script type="text/javascript">
