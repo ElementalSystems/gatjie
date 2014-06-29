@@ -5,24 +5,69 @@
   body {
     margin:0px;
     padding:0px;
-    text-align:center;
+    text-align:center;	
+  }
+  
+  div.gameframe {
+    perspective: 600px;
+	perspective-origin: 50% 0%;
+	padding:100px;
+	background: #000;
+	width: 600px;
+  }
+  
+  
+  div.board {
+	 width:600px;
+	 background:#DDD;
+     overflow: hidden;
+	 position: relative;
+	 transform: rotateX(45deg);	 
+	 perspective: 600px;
+	 perspective-origin: 50% 50%;
+	 
   }
   
   div.lane
   {
-    clear: left;   
+    clear: left;  
+    width: 100%;	
 	height: 30px;
-	width: 9999px;
 	background: #555;
 	padding: 5px;
 	position: relative;
+    perspective: 600px;
+	perspective-origin: 50% 100%;
   }
+  
+  div.lanecontent
+  {
+    position: relative;
+    width: 9999px;	
+	transform: rotateX(-45deg);	 
+  }
+  
+  div.avatar {
+     width:40px;
+	 height:40px;
+	 position: absolute;
+	 left:125px;
+	 top:150px;
+	 transform: rotateX(-45deg);
+  }
+  
+  div.avatarcontent {
+     width:100%;
+	 height:100%;
+     background: #00F;
+	 
+  }
+  
   
   div.lane.divider
   {
     height: 15px;
 	background: #050;
-	
   }
   
   div.lane.edge
@@ -34,7 +79,7 @@
   
   div.lane span {
     float: left;
-	height:100%;
+	height:100%;	
   }
   
   span.gap {
@@ -66,21 +111,6 @@
    width: 30px;   
   }
   
-  div.board {
-     width:600px;
-	 background:#DDD;
-     overflow: hidden;
-	 position: relative;
-  }
-  
-  div.avatar {
-     width:20px;
-	 height:20px;
-	 background: #00F;
-	 position: absolute;
-	 left:25px;
-	 top:50px;
-  }
   
 
   </style>
@@ -88,17 +118,19 @@
   <body>
   <br>
   
+  <div class="gameframe">
   <div class="board">
-  <div class="lane edge" data-speed=0 data-repeat=270></div>
-  <div class="lane" data-speed=50 data-repeat=280><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span></div>
-  <div class="lane" data-speed=20 data-repeat=230><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span></div>
-  <div class="lane" data-speed=160 data-repeat=270><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span></div>
-  <div class="lane divider" data-speed=0 data-repeat=270></div>
-  <div class="lane" data-speed=-80 data-repeat=430><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span></div>
-  <div class="lane" data-speed=-120 data-repeat=190><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span></div>
-  <div class="lane" data-speed=-20 data-repeat=240><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span></div>
-  <div class="lane edge" data-speed=0 data-repeat=270></div>
-  <div class="avatar" >U<div>
+  <div class="lane edge" data-speed=0 data-repeat=270><div class="lanecontent"></div></div>
+  <div class="lane" data-speed=50 data-repeat=280><div class="lanecontent"><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span></div></div>
+  <div class="lane" data-speed=20 data-repeat=230><div class="lanecontent"><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span></div></div>
+  <div class="lane" data-speed=160 data-repeat=270><div class="lanecontent"><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span><span class="gap4">G4</span><span class="car">C</span><span class="gap2">G2</span></div></div>
+  <div class="lane divider" data-speed=0 data-repeat=270><div class="lanecontent"></div></div>
+  <div class="lane" data-speed=-80 data-repeat=430><div class="lanecontent"><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="taxi">T</span><span class="gap4">G4</span></div></div>
+  <div class="lane" data-speed=-120 data-repeat=190><div class="lanecontent"><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span><span class="car">C</span><span class="gap4">G4</span></div></div>
+  <div class="lane" data-speed=-20 data-repeat=240><div class="lanecontent"><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span><span class="bus">B</span><span class="gap4">G4</span></div></div>
+  <div class="lane edge" data-speed=0 data-repeat=270><div class="lanecontent"></div></div>
+  <div class="avatar" ><div class="avatarcontent" >U</div></div>
+  </div>
   </div>
   
   <script type="text/javascript">
@@ -143,7 +175,7 @@
   function positionLane(l,timeStamp)
   {
       var val=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
-	  l.style.left=val.toString()+"px";
+	  l.lanecontent.style.left=val.toString()+"px";
   }
 	
 	
@@ -153,7 +185,8 @@
 	    var l=bits[i];
 		l.speed=l.getAttribute("data-speed");
 		l.repeat=l.getAttribute("data-repeat");
-        lanes.push(l);
+		l.lanecontent=l.getElementsByClassName("lanecontent")[0];
+		lanes.push(l);
 	  }
       window.requestAnimationFrame(GameLoop);     
   }
