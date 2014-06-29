@@ -34,7 +34,6 @@
     width: 100%;	
 	height: 30px;
 	background: #555;
-	padding: 5px;
 	position: relative;
     perspective: 600px;
 	perspective-origin: 50% 100%;
@@ -48,8 +47,8 @@
   }
   
   div.avatar {
-     width:40px;
-	 height:40px;
+     width:30px;
+	 height:30px;
 	 position: absolute;
 	 left:125px;
 	 top:150px;
@@ -119,7 +118,7 @@
   <br>
   
   <div class="gameframe">
-  <div class="board">
+  <div class="board" tabindex="1">
   <div class="lane edge" data-speed=0 data-repeat=270><div class="lanecontent"></div></div>
   <div class="lane" data-speed=50 data-repeat=280><div class="lanecontent"><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="bus">B</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span></div></div>
   <div class="lane" data-speed=20 data-repeat=230><div class="lanecontent"><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span><span class="bus">B</span><span class="gap2">G2</span><span class="taxi">T</span><span class="gap">G</span></div></div>
@@ -161,14 +160,39 @@
 
   
   var lanes=[];
+  var avatar;
+  var board;
   
-  function GameLoop(timeStamp) {
-        
+  function GameLoop(timeStamp) 
+  {        
 		for (var i=0; i<lanes.length;i++)
 		  positionLane(lanes[i],timeStamp)
-		
-		window.requestAnimationFrame(GameLoop);  
-		
+		moveAvatar(timeStamp)
+		window.requestAnimationFrame(GameLoop);  		
+  }
+  
+  function moveAvatar(timeStamp) 
+  {
+     
+     switch (avatar.command) {
+	 case 1:
+	 avatar.posy-=30;
+	 avatar.style.top=avatar.posy.toString()+"px";	 
+	 break;
+	 case 3:
+	 avatar.posy+=30;
+	 avatar.style.top=avatar.posy.toString()+"px";	 
+	 break;
+	 case 2:
+	 avatar.posx+=20;
+	 avatar.style.left=avatar.posx.toString()+"px";	 
+	 break;
+	 case 4:
+	 avatar.posx-=20;
+	 avatar.style.left=avatar.posx.toString()+"px";	 
+	 break;	 
+	 }
+	 avatar.command=0;
   }
   
 	
@@ -177,9 +201,28 @@
       var val=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
 	  l.lanecontent.style.left=val.toString()+"px";
   }
-	
+  
+  function keyEvent(code,down)
+  {
+     if (down==1) {
+	   if (code==87) avatar.command=1;
+	   if (code==68) avatar.command=2;
+	   if (code==83) avatar.command=3;
+	   if (code==65) avatar.command=4;	   
+	 }
+  }
 	
   function play() {
+      board=document.getElementsByClassName("board")[0];
+	  board.onkeydown=function(evt) { keyEvent(evt.keyCode,1);  };
+      board.onkeyup=function(evt) { keyEvent(evt.keyCode,0);  };
+	  board.focus();
+	
+	  avatar=document.getElementsByClassName("avatar")[0];
+	  avatar.command=0;	  
+	  avatar.posx=100;
+	  avatar.posy=100;
+	
       var bits=document.getElementsByClassName("lane");
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
