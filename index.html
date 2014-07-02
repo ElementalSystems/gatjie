@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Gatjie Kermit Thang</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <style>
   body {
     margin:0px;
@@ -204,7 +205,7 @@
   
   
   var lastMouseX,lastMouseY;
-  function mouseEvent(x,y,down)
+  function touchEvent(x,y,down)
   {
     if (down) {
 	  lastMouseX=x;
@@ -238,8 +239,25 @@
       board=document.getElementsByClassName("board")[0];
 	  board.onkeydown=function(evt) { keyEvent(evt.keyCode,1);  };
       board.onkeyup=function(evt) { keyEvent(evt.keyCode,0);  };
-	  board.onmousedown=function(evt) { mouseEvent(evt.pageX,evt.pageY,1); return false;}
-	  board.onmouseup=function(evt) { mouseEvent(evt.pageX,evt.pageY,0); return false;}
+	  board.addEventListener('touchstart',
+	     function(evt)
+	     {
+           var t=evt.changedTouches[0];
+           touchEvent(t.pageX,t.pageY,1);
+		   evt.preventDefault();
+		 },false
+	     );
+	  board.addEventListener('touchend',
+	     function(evt)
+	     {
+           var t=evt.changedTouches[0];
+           touchEvent(t.pageX,t.pageY,0);
+		   evt.preventDefault();
+		 },false
+	     );
+		 
+	  //board.onmousedown=function(evt) { mouseEvent(evt.pageX,evt.pageY,1); return false;}
+	  //board.onmouseup=function(evt) { mouseEvent(evt.pageX,evt.pageY,0); return false;}
 
 	  board.focus();
 	
