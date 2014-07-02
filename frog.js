@@ -129,8 +129,19 @@
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
 		l.speed=l.getAttribute("data-speed");
-		l.repeat=l.getAttribute("data-repeat");
 		l.lanecontent=l.getElementsByClassName("lanecontent")[0];
+		l.repeat=0;
+		//add up your childrens width
+		var children=l.lanecontent.getElementsByTagName("span");
+		for(var j = 0; j < children.length; j++) 
+		   l.repeat+=children[j].clientWidth;
+		if (l.repeat==0) l.repeat=3000;
+		//now double up on the content
+        var content=l.lanecontent.innerHTML;		
+		var start=content+content;
+		for (var e=0;e < 2000/l.repeat;e+=1)
+		  start+=content;
+		l.lanecontent.innerHTML=start;
 		lanes.push(l);
 	  }
       window.requestAnimationFrame(GameLoop);     
