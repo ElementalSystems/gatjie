@@ -98,7 +98,7 @@
   }
 	
   function play() {
-      board=document.getElementsByClassName("board")[0];
+      board=document.getElementsByClassName("gameframe")[0];
 	  board.onkeydown=function(evt) { keyEvent(evt.keyCode,1);  };
       board.onkeyup=function(evt) { keyEvent(evt.keyCode,0);  };
 	  board.addEventListener('touchstart',

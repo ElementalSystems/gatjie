@@ -88,6 +88,7 @@
   div.lane span {
     float: left;
 	height:100%;	
+	font-size: 0px; 
   }
   
   span.gap {
