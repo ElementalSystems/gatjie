@@ -10,7 +10,9 @@
   }
   
   div.gameframe {
-    perspective: 600px;
+    -webkit-perspective: 600px;
+	-webkit-perspective-origin: 50% 0%;
+	perspective: 600px;
 	perspective-origin: 50% 0%;
 	padding:100px;
 	background: #000;
@@ -23,9 +25,14 @@
 	 background:#DDD;
      overflow: hidden;
 	 position: relative;
+	 
 	 transform: rotateX(45deg);	 
+	 -webkit-transform: rotateX(45deg);	 
+	 
 	 perspective: 600px;
-	 perspective-origin: 50% 50%;
+	 perspective-origin: 50% 100%;
+	-webkit-perspective: 600px;
+	-webkit-perspective-origin: 50% 100%;
 	 
   }
   
@@ -38,6 +45,9 @@
 	position: relative;
     perspective: 600px;
 	perspective-origin: 50% 100%;
+	 -webkit-perspective: 600px;
+	-webkit-perspective-origin: 50% 100%;
+	
   }
   
   div.lanecontent
@@ -45,6 +55,7 @@
     position: relative;
     width: 9999px;	
 	transform: rotateX(-45deg);	 
+	-webkit-transform: rotateX(-45deg);	 
   }
   
   div.avatar {
@@ -54,6 +65,7 @@
 	 left:125px;
 	 top:150px;
 	 transform: rotateX(-45deg);
+	 -webkit-transform: rotateX(-45deg);	 
   }
   
   div.avatarcontent {
