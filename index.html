@@ -202,6 +202,28 @@
 	  l.lanecontent.style.left=val.toString()+"px";
   }
   
+  
+  var lastMouseX,lastMouseY;
+  function mouseEvent(x,y,down)
+  {
+    if (down) {
+	  lastMouseX=x;
+	  lastMouseY=y;	 
+      avatar.command=0;	  
+	}else {
+	  //seems we are moving...
+	  var xdif=lastMouseX-x;
+	  var ydif=lastMouseY-y;
+	  if (Math.abs(xdif)>Math.abs(ydif)) { //move sideways
+	     if (xdif>0) avatar.command=4;
+		 else avatar.command=2;		 
+	  } else {  //move across
+	    if (ydif>0) avatar.command=1;
+		else avatar.command=3;		 
+	  }	  
+	}
+  }
+  
   function keyEvent(code,down)
   {
      if (down==1) {
@@ -216,6 +238,9 @@
       board=document.getElementsByClassName("board")[0];
 	  board.onkeydown=function(evt) { keyEvent(evt.keyCode,1);  };
       board.onkeyup=function(evt) { keyEvent(evt.keyCode,0);  };
+	  board.onmousedown=function(evt) { mouseEvent(evt.pageX,evt.pageY,1); return false;}
+	  board.onmouseup=function(evt) { mouseEvent(evt.pageX,evt.pageY,0); return false;}
+
 	  board.focus();
 	
 	  avatar=document.getElementsByClassName("avatar")[0];
