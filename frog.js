@@ -25,6 +25,7 @@
   var lanes=[];
   var avatar;
   var board;
+  var status=document.getElementById("status");
   
   function GameLoop(timeStamp) 
   {        
@@ -34,6 +35,28 @@
 		window.requestAnimationFrame(GameLoop);  		
   }
   
+  function resolveLaneHitTest(lane,xleft,xright)
+  {
+     //select my lane
+     var l=lanes[lane];
+	 //map into the repeat coordinate system corrected by the lane offset
+	 xleft=(xleft-l.laneoffset)%l.repeat;	 
+	 xright=(xright-l.laneoffset)%l.repeat;	 
+	 
+     //correct for current leftness of lane
+     for (var i=0;i<l.members.length;i+=1) {
+	   if (xleft<xright) { //the normal order of things
+	     if (xleft>l.members[i].right) continue; //our left edge is right of its right edge
+	     if (xright<l.members[i].left) continue; //our right edge is left of its left edge
+	   } else { //actually the mapping has split the points because we are overlapping the repeat
+         if ((xleft>l.members[i].right)&&(xright<l.members[i].left)) continue;
+         if ((xright<l.members[i].left)&&(xleft>l.members[i].right)) continue;	     
+	   }
+	   //we ain't clear at all we got a hit!
+	   return l.members[i].type;
+	 }
+	 return "-";
+  }
   
   function setAvatarLane()
   {
@@ -55,22 +78,25 @@
 	 setAvatarLane();	 
 	 break;
 	 case 2:
-	 avatar.posx+=20;
+	 avatar.posx+=5;
 	 avatar.style.left=avatar.posx.toString()+"px";	 
 	 break;
 	 case 4:
-	 avatar.posx-=20;
+	 avatar.posx-=5;
 	 avatar.style.left=avatar.posx.toString()+"px";	 
 	 break;	 
 	 }
 	 avatar.command=0;
+	 var ht=resolveLaneHitTest(avatar.lane,avatar.posx,avatar.posx+avatar.offsetWidth);
+	 status.innerHTML="   hittest:"+ht;
   }
   
 	
   function positionLane(l,timeStamp)
   {
-      var val=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
-	  l.lanecontent.style.left=val.toString()+"px";
+      l.laneoffset=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
+	  l.lanecontent.style.left=l.laneoffset.toString()+"px";
+	  
   }
   
   
@@ -145,11 +171,11 @@
 		   var ch=children[j];
 		   l.repeat+=ch.offsetWidth;
 		   if (ch.classList.contains("refuse")) {
-		      var ob={left: l.offsetLeft, right: l.offsetLeft+l.offsetWidth, type: "r"};
+		      var ob={left: ch.offsetLeft, right: ch.offsetLeft+ch.offsetWidth, type: "r"};
 			  l.members.push(ob);
 		   }
 		   if (ch.classList.contains("kill")) {
-		      var ob={left: l.offsetLeft, right: l.offsetLeft+l.offsetWidth, type: "k"};
+		      var ob={left: ch.offsetLeft, right: ch.offsetLeft+ch.offsetWidth, type: "k"};
 			  l.members.push(ob);
 		   }		   
 		}
@@ -164,6 +190,7 @@
 		lanes.push(l);
 	  }
 	  avatar.lane=lanes.length-1;
+	  setAvatarLane();
       window.requestAnimationFrame(GameLoop);     
   }
   
