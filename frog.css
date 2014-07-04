@@ -91,7 +91,7 @@
 	font-size: 0px; 
   }
   
-  span.gap {
+  div.lane span.gap {
     width: 40px;
 	
   }
@@ -119,5 +119,21 @@
    background:#0C0;
    width: 30px;   
   }
+    
+  div.lane span.house {
+   background:#999;
+   width: 90px; 
+   height: 40px;
+   border: 5px solid #333;
+   border-radius: 10%;   
+  }
   
+  div.lane span.door {
+   background:#040;
+   width: 30px;   
+   height: 20px;
+   border: 10px solid #0F0;
+   border-radius: 50%;   
+   
+  }
   
