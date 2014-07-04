@@ -34,17 +34,25 @@
 		window.requestAnimationFrame(GameLoop);  		
   }
   
+  
+  function setAvatarLane()
+  {
+     avatar.style.top=(lanes[avatar.lane].bottomedge-avatar.offsetHeight).toString()+"px";	      
+  }
+  
   function moveAvatar(timeStamp) 
   {
      
      switch (avatar.command) {
 	 case 1:
-	 avatar.posy-=30;
-	 avatar.style.top=avatar.posy.toString()+"px";	 
+	 avatar.lane-=1;
+	 if (avatar.lane<0) avatar.lane=0;
+	 setAvatarLane();
 	 break;
 	 case 3:
-	 avatar.posy+=30;
-	 avatar.style.top=avatar.posy.toString()+"px";	 
+	 avatar.lane+=1;
+	 if (avatar.lane>=lanes.length) avatar.lane=lanes.length-1;
+	 setAvatarLane();	 
 	 break;
 	 case 2:
 	 avatar.posx+=20;
@@ -123,8 +131,7 @@
 	  avatar=document.getElementsByClassName("avatar")[0];
 	  avatar.command=0;	  
 	  avatar.posx=100;
-	  avatar.posy=100;
-	
+	  
       var bits=document.getElementsByClassName("lane");
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
@@ -133,8 +140,19 @@
 		l.repeat=0;
 		//add up your childrens width
 		var children=l.lanecontent.getElementsByTagName("span");
-		for(var j = 0; j < children.length; j++) 
-		   l.repeat+=children[j].clientWidth;
+		l.members=[];
+		for(var j = 0; j < children.length; j++)  {		   
+		   var ch=children[j];
+		   l.repeat+=ch.offsetWidth;
+		   if (ch.classList.contains("refuse")) {
+		      var ob={left: l.offsetLeft, right: l.offsetLeft+l.offsetWidth, type: "r"};
+			  l.members.push(ob);
+		   }
+		   if (ch.classList.contains("kill")) {
+		      var ob={left: l.offsetLeft, right: l.offsetLeft+l.offsetWidth, type: "k"};
+			  l.members.push(ob);
+		   }		   
+		}
 		if (l.repeat==0) l.repeat=3000;
 		//now double up on the content
         var content=l.lanecontent.innerHTML;		
@@ -142,8 +160,10 @@
 		for (var e=0;e < 2000/l.repeat;e+=1)
 		  start+=content;
 		l.lanecontent.innerHTML=start;
+		l.bottomedge=l.offsetTop+l.offsetHeight;
 		lanes.push(l);
 	  }
+	  avatar.lane=lanes.length-1;
       window.requestAnimationFrame(GameLoop);     
   }
   
