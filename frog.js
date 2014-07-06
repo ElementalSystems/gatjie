@@ -1,26 +1,3 @@
- 	(function() {
-	var lastTime = 0;
-	var vendors = ['ms', 'moz', 'webkit', 'o'];
-	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-	window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-	window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
-	|| window[vendors[x]+'CancelRequestAnimationFrame'];
-	}
-	if (!window.requestAnimationFrame)
-	window.requestAnimationFrame = function(callback, element) {
-	var currTime = new Date().getTime();
-	var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-	var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-	timeToCall);
-	lastTime = currTime + timeToCall;
-	return id;
-	};
-	if (!window.cancelAnimationFrame)
-	window.cancelAnimationFrame = function(id) {
-	clearTimeout(id);
-	};
-	}());
-
   
   var lanes=[];
   var avatar;
@@ -58,40 +35,6 @@
 	 return "-";
   }
   
-  function setAvatarLane()
-  {
-     avatar.style.top=(lanes[avatar.lane].bottomedge-avatar.offsetHeight).toString()+"px";	      
-  }
-  
-  function moveAvatar(timeStamp) 
-  {
-     
-     switch (avatar.command) {
-	 case 1:
-	 avatar.lane-=1;
-	 if (avatar.lane<0) avatar.lane=0;
-	 setAvatarLane();
-	 break;
-	 case 3:
-	 avatar.lane+=1;
-	 if (avatar.lane>=lanes.length) avatar.lane=lanes.length-1;
-	 setAvatarLane();	 
-	 break;
-	 case 2:
-	 avatar.posx+=5;
-	 avatar.style.left=avatar.posx.toString()+"px";	 
-	 break;
-	 case 4:
-	 avatar.posx-=5;
-	 avatar.style.left=avatar.posx.toString()+"px";	 
-	 break;	 
-	 }
-	 avatar.command=0;
-	 var ht=resolveLaneHitTest(avatar.lane,avatar.posx,avatar.posx+avatar.offsetWidth);
-	 status.innerHTML="   hittest:"+ht;
-  }
-  
-	
   function positionLane(l,timeStamp)
   {
       l.laneoffset=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
@@ -154,9 +97,6 @@
 		 
 	  board.focus();
 	
-	  avatar=document.getElementsByClassName("avatar")[0];
-	  avatar.command=0;	  
-	  avatar.posx=100;
 	  
       var bits=document.getElementsByClassName("lane");
       for(var i = 0; i < bits.length; i++) {
@@ -177,6 +117,10 @@
 		   if (ch.classList.contains("kill")) {
 		      var ob={left: ch.offsetLeft, right: ch.offsetLeft+ch.offsetWidth, type: "k"};
 			  l.members.push(ob);
+		   }
+           if (ch.classList.contains("target")) {
+		      var ob={left: ch.offsetLeft, right: ch.offsetLeft+ch.offsetWidth, type: "t"};
+			  l.members.push(ob);
 		   }		   
 		}
 		if (l.repeat==0) l.repeat=3000;
@@ -188,10 +132,11 @@
 		l.lanecontent.innerHTML=start;
 		l.bottomedge=l.offsetTop+l.offsetHeight;
 		lanes.push(l);
-	  }
-	  avatar.lane=lanes.length-1;
-	  setAvatarLane();
-      window.requestAnimationFrame(GameLoop);     
+	  }	  
+	  
+	  setupAvatar();
+	  
+	  window.requestAnimationFrame(GameLoop);     
   }
   
   play();
