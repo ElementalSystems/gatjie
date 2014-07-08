@@ -38,10 +38,8 @@
   function positionLane(l,timeStamp)
   {
       l.laneoffset=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
-	  l.lanecontent.style.left=l.laneoffset.toString()+"px";
-	  
+	  l.lanecontent.style.left=l.laneoffset.toString()+"px";	  
   }
-  
   
   var lastMouseX,lastMouseY;
   function touchEvent(x,y,down)
@@ -73,9 +71,10 @@
 	   if (code==65) avatar.command=4;	   
 	 }
   }
-	
-  function play() {
-      board=document.getElementsByClassName("gameframe")[0];
+  
+  function setupBoard()
+  {
+     board=document.getElementsByClassName("gameframe")[0];
 	  board.onkeydown=function(evt) { keyEvent(evt.keyCode,1);  };
       board.onkeyup=function(evt) { keyEvent(evt.keyCode,0);  };
 	  board.addEventListener('touchstart',
@@ -97,10 +96,26 @@
 		 
 	  board.focus();
 	  board.lives=5;
-	  board.goals=0;
+	  board.goals=0;	
+	  board.infostatus=document.getElementById("info_status");
+	  board.infogoals=document.getElementById("info_goals");
+	  board.infolives=document.getElementById("info_lives");
 	  
+	  
+  }
+  
+  function refreshBoardInfo()
+  {
+      board.infolives.innerHTML=board.lives.toString()+" / 5 lives";
+	  board.infogoals.innerHTML=board.goals.toString()+" / 5 goals";
+  }
+  
+  
 	
-	  
+  function play() {
+      setupBoard() 
+	
+	  //set up lanes
       var bits=document.getElementsByClassName("lane");
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
@@ -138,7 +153,9 @@
 	  }	  
 	  
 	  setupAvatar();
-	  resetAvatar();
+	
+  	  resetAvatar();
+	  refreshBoardInfo();
 	  
 	  window.requestAnimationFrame(GameLoop);     
   }
