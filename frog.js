@@ -96,6 +96,9 @@
 	     );
 		 
 	  board.focus();
+	  board.lives=5;
+	  board.goals=0;
+	  
 	
 	  
       var bits=document.getElementsByClassName("lane");
@@ -135,6 +138,7 @@
 	  }	  
 	  
 	  setupAvatar();
+	  resetAvatar();
 	  
 	  window.requestAnimationFrame(GameLoop);     
   }

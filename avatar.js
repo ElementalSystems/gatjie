@@ -8,13 +8,19 @@
 	  avatar.movestarttime=0;
 	  avatar.moveendtime=0;
 	  avatar.posx=200;
-	  avatar.lane=lanes.length-1;
 	  avatar.lanetime=Number(avatar.getAttribute("data-lanetime"));
 	  avatar.sidletime=Number(avatar.getAttribute("data-sidletime"));
-	  avatar.sidledistance=Number(avatar.getAttribute("data-sidledistance"));
+	  avatar.sidledistance=Number(avatar.getAttribute("data-sidledistance"));	
 	  
+  }
+  
+  function resetAvatar()
+  {
+     avatar.lane=lanes.length-1;
+	 avatar.posx=board.offsetWidth/2;
+	 avatar.style.top=getAvatarLaneLine(avatar.lane).toString()+"px";	      
+	 avatar.style.left=avatar.posx+"px";	      		   
 	
-	  
   }
   
   function getAvatarLaneLine(lane)
