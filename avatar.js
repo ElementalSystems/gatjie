@@ -71,23 +71,39 @@
 		   var pos=avatar.movestartpos+(timeStamp-avatar.movestarttime)*(avatar.moveendpos-avatar.movestartpos)/(avatar.moveendtime-avatar.movestarttime);
 		   if ((avatar.move==1)||(avatar.move==3))  //y-axis
 		     avatar.style.top=pos.toString()+"px";	      
-		   else
+		   else if ((avatar.move==2)||(avatar.move==4))  //x-axis
 		     avatar.style.left=pos.toString()+"px";	      		   
 		 } else {
 		   if ((avatar.move==1)||(avatar.move==3)) {  //y-axis
 		     avatar.style.top=avatar.moveendpos.toString()+"px";	      
 			 avatar.lane=avatar.moveendlane;
-		   } else {
+		   } else if ((avatar.move==2)||(avatar.move==4)) { //x-axis
 		     avatar.style.left=avatar.moveendpos.toString()+"px";	      		   
 			 avatar.posx=avatar.moveendpos;
+		   } else if (avatar.move==5) { //death
+		     notifyBoardDeath();
+		   } else if (avatar.move==6) { //death
+		     notifyBoardWin();
 		   }
 		   avatar.move=0;
 		   avatar.command=0;		   
 		 }
 	 }
+	 if (avatar.move==0) {
+	   var ht=resolveLaneHitTest(avatar.lane,avatar.posx,avatar.posx+avatar.offsetWidth);
+	   if (ht=="k") {
+	 	 avatar.movestarttime=timeStamp;
+		 avatar.moveendtime=timeStamp+100;
+		 avatar.move=5;		 	
+	   }
+	   if (ht=="t") {
+	 	 avatar.movestarttime=timeStamp;
+		 avatar.moveendtime=timeStamp+100;
+		 avatar.move=6;		 	
+	   }
+	   status.innerHTML="   hittest:"+ht;
+	 }
 	 
-	 var ht=resolveLaneHitTest(avatar.lane,avatar.posx,avatar.posx+avatar.offsetWidth);
-	 status.innerHTML="   hittest:"+ht;
   }
   
 	

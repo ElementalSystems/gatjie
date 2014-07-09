@@ -110,7 +110,20 @@
 	  board.infogoals.innerHTML=board.goals.toString()+" / 5 goals";
   }
   
-  
+  function notifyBoardDeath()
+  {
+    board.lives-=1;
+	refreshBoardInfo();
+	resetAvatar();
+  }
+	
+	
+  function notifyBoardWin()
+  {
+    board.goals+=1;
+	refreshBoardInfo();
+	resetAvatar();
+  }
 	
   function play() {
       setupBoard() 
