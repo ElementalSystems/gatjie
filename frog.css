@@ -123,7 +123,7 @@
     
   div.lane span.house {
    background:#999;
-   width: 100px; 
+   width: 100px;
    height: 40px;
    border: 5px solid #333;
    border-radius: 10%;   
@@ -142,6 +142,22 @@
    {
     background: #DDD;
 	position: absolute;
-	top :0px;
-	right:0px;
+	top :20%;
+	right:20%;
+	left: 20%;
+	bottom:20%;
+	z-index:5000;
+	font-size: 30px;
   }
+  
+  div.infopanel.small
+   {
+    top :0px;
+	right:0px;
+	left: auto;
+	bottom:auto;
+	width: 20%;
+	height: auto;
+	font-size: 12px;
+  }
+  

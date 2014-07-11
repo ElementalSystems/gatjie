@@ -94,25 +94,59 @@
 		 },false
 	     );
 		 
-	  board.focus();
-	  board.lives=5;
-	  board.goals=0;	
+	  board.info=document.getElementsByClassName("infopanel")[0];
 	  board.infostatus=document.getElementById("info_status");
+	  board.infocommand=document.getElementById("info_command");
+	  board.infocommand.onclick=clickBoardStatus;
+	  
 	  board.infogoals=document.getElementById("info_goals");
-	  board.infolives=document.getElementById("info_lives");
+	  board.infolives=document.getElementById("info_lives");	  
 	  
-	  
+	  board.isplaying=false;
+	  board.winState=0;
+  }
+  
+  function resetBoard()
+  {
+      board.focus();
+	  board.lives=5;
+	  board.goals=0;      	 
+  }
+  
+  function clickBoardStatus()
+  {
+      
+	  resetAvatar();
+	  resetBoard();
+	  board.isplaying=true;
+	  refreshBoardInfo();	 
   }
   
   function refreshBoardInfo()
   {
+      board.info.classList.toggle('small',board.isplaying);
       board.infolives.innerHTML=board.lives.toString()+" / 5 lives";
 	  board.infogoals.innerHTML=board.goals.toString()+" / 5 goals";
+	  if (board.isplaying) 
+	    board.infocommand.innerHTML="Pause";
+	  else
+	    board.infocommand.innerHTML="Play Now";
+		
+	  switch (board.winState) {
+	    case 0: board.infostatus.innerHTML="Welcome"; break;
+		case 1: board.infostatus.innerHTML="Game Paused"; break;
+		case 2: board.infostatus.innerHTML="You Won"; break;
+		case 3: board.infostatus.innerHTML="You Died"; break;
+	  }
   }
   
   function notifyBoardDeath()
   {
     board.lives-=1;
+	if (board.lives==0) {
+	   board.isplaying=false;
+	   board.winState=3;	 
+	}
 	refreshBoardInfo();
 	resetAvatar();
   }
@@ -121,6 +155,10 @@
   function notifyBoardWin()
   {
     board.goals+=1;
+	if (board.goals==5) {
+	   board.isplaying=false;
+	   board.winState=2;	 
+	}
 	refreshBoardInfo();
 	resetAvatar();
   }
@@ -163,13 +201,11 @@
 		l.lanecontent.innerHTML=start;
 		l.bottomedge=l.offsetTop+l.offsetHeight;
 		lanes.push(l);
-	  }	  
-	  
-	  setupAvatar();
-	
-  	  resetAvatar();
-	  refreshBoardInfo();
-	  
+	  }	  	  
+	  setupAvatar();	
+	  resetBoard();
+	  resetAvatar();
+	  refreshBoardInfo();	  
 	  window.requestAnimationFrame(GameLoop);     
   }
   
