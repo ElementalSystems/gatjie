@@ -101,11 +101,8 @@ font-size: 0px;
 }
 
 .lane .house {
- background:#999;
  width: 100px;
  height: 40px;
- border: 5px solid #333;
- border-radius: 10%;
 }
 
 .lane .door {
