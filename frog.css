@@ -3,38 +3,37 @@ body {
   margin:0px;
   padding:0px;
   text-align:center;
+  background: #333;
 }
 
 .gameframe {
   -webkit-perspective: 600px;
--webkit-perspective-origin: 50% 0%;
-perspective: 600px;
-perspective-origin: 50% 0%;
-padding:100px;
-background: #000;
-width: 600px;
-position: relative;
+  -webkit-perspective-origin: 50% 0%;
+  perspective: 600px;
+  perspective-origin: 50% 0%;
+  padding:100px;
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
 }
 
 
 .board {
- width:600px;
- background:#DDD;
-   overflow: hidden;
- position: relative;
+  width:600px;
+  background:#DDD;
+  overflow: hidden;
+  position: relative;
 
- transform: rotateX(45deg);
- -webkit-transform: rotateX(45deg);
+  transform: rotateX(45deg);
+  -webkit-transform: rotateX(45deg);
 
- perspective: 600px;
- perspective-origin: 50% 100%;
- -webkit-perspective: 600px;
- -webkit-perspective-origin: 50% 100%;
-
+  perspective: 600px;
+  perspective-origin: 50% 100%;
+  -webkit-perspective: 600px;
+  -webkit-perspective-origin: 50% 100%;
 }
 
-.lane
-{
+.lane {
   clear: left;
   width: 100%;
 height: 30px;
@@ -44,11 +43,9 @@ position: relative;
 perspective-origin: 50% 100%;
 -webkit-perspective: 600px;
 -webkit-perspective-origin: 50% 100%;
-
 }
 
-.lanecontent
-{
+.lanecontent {
   position: relative;
   width: 9999px;
 transform: rotateX(-45deg);
@@ -66,25 +63,11 @@ transform: rotateX(-45deg);
 .avatarcontent {
    width:100%;
  height:100%;
-   // background: #00F;
  position: relative;
  top:-10px;
 
 }
 
-
-.lane.divider
-{
-  height: 15px;
-background: #050;
-}
-
-.lane.edge
-{
-  height: 50px;
-background: #080;
-
-}
 
 .lane span {
   float: left;
@@ -92,9 +75,8 @@ height:100%;
 font-size: 0px;
 }
 
-.lane .gap {
+.gap {
   width: 40px;
-
 }
 
 .gap2 {
@@ -106,19 +88,16 @@ font-size: 0px;
 }
 
 .bus {
- // background:#F00;
- width: 80px;
+ width: 90px;
 }
 
 .taxi {
- // background:#CC0;
- width: 30px;
+ width: 50px;
 }
 
 
 .car {
- // background:#0C0;
- width: 30px;
+ width: 40px;
 }
 
 .lane .house {
@@ -130,16 +109,11 @@ font-size: 0px;
 }
 
 .lane .door {
- background:#040;
  width: 50px;
  height: 20px;
- border: 10px solid #0F0;
- border-radius: 50%;
-
 }
 
-.infopanel
- {
+.infopanel {
   background: #DDD;
 position: absolute;
 top :20%;
@@ -150,8 +124,7 @@ z-index:5000;
 font-size: 30px;
 }
 
-.infopanel.small
- {
+.infopanel.small {
   top :0px;
 right:0px;
 left: auto;
@@ -165,4 +138,22 @@ font-size: 12px;
 img {
   width: 100%;
   height: auto;
+}
+
+.lane {
+  background: grey url(assets/lane.png) 0 0 repeat-x;
+  background-size: contain;
+}
+
+.edge {
+  height: 50px;
+  background: brown url(assets/mud.png) 0 0 repeat-x;
+  background-size: cover;
+
+}
+
+.divider {
+  height: 15px;
+  background: green url(assets/grass.png) 0 0 repeat-x;
+  background-size: cover;
 }
