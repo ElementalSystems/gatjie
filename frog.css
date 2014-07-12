@@ -66,7 +66,7 @@ transform: rotateX(-45deg);
 .avatarcontent {
    width:100%;
  height:100%;
-   background: #00F;
+   // background: #00F;
  position: relative;
  top:-10px;
 
@@ -106,18 +106,18 @@ font-size: 0px;
 }
 
 .bus {
- background:#F00;
+ // background:#F00;
  width: 80px;
 }
 
 .taxi {
- background:#CC0;
+ // background:#CC0;
  width: 30px;
 }
 
 
 .car {
- background:#0C0;
+ // background:#0C0;
  width: 30px;
 }
 
@@ -159,4 +159,10 @@ bottom:auto;
 width: 20%;
 height: auto;
 font-size: 12px;
+}
+
+
+img {
+  width: 100%;
+  height: auto;
 }
