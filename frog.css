@@ -5,7 +5,7 @@ body {
   text-align:center;
 }
 
-div.gameframe {
+.gameframe {
   -webkit-perspective: 600px;
 -webkit-perspective-origin: 50% 0%;
 perspective: 600px;
@@ -17,7 +17,7 @@ position: relative;
 }
 
 
-div.board {
+.board {
  width:600px;
  background:#DDD;
    overflow: hidden;
@@ -33,7 +33,7 @@ div.board {
 
 }
 
-div.lane
+.lane
 {
   clear: left;
   width: 100%;
@@ -47,7 +47,7 @@ perspective-origin: 50% 100%;
 
 }
 
-div.lanecontent
+.lanecontent
 {
   position: relative;
   width: 9999px;
@@ -55,7 +55,7 @@ transform: rotateX(-45deg);
 -webkit-transform: rotateX(-45deg);
 }
 
-div.avatar {
+.avatar {
    width:20px;
  height:20px;
  position: absolute;
@@ -63,7 +63,7 @@ div.avatar {
  -webkit-transform: rotateX(-45deg);
 }
 
-div.avatarcontent {
+.avatarcontent {
    width:100%;
  height:100%;
    background: #00F;
@@ -73,55 +73,55 @@ div.avatarcontent {
 }
 
 
-div.lane.divider
+.lane.divider
 {
   height: 15px;
 background: #050;
 }
 
-div.lane.edge
+.lane.edge
 {
   height: 50px;
 background: #080;
 
 }
 
-div.lane span {
+.lane span {
   float: left;
 height:100%;
 font-size: 0px;
 }
 
-div.lane span.gap {
+.lane .gap {
   width: 40px;
 
 }
 
-span.gap2 {
+.gap2 {
   width: 80px;
 }
 
-span.gap4 {
+.gap4 {
   width: 160px;
 }
 
-span.bus {
+.bus {
  background:#F00;
  width: 80px;
 }
 
-span.taxi {
+.taxi {
  background:#CC0;
  width: 30px;
 }
 
 
-span.car {
+.car {
  background:#0C0;
  width: 30px;
 }
 
-div.lane span.house {
+.lane .house {
  background:#999;
  width: 100px;
  height: 40px;
@@ -129,7 +129,7 @@ div.lane span.house {
  border-radius: 10%;
 }
 
-div.lane span.door {
+.lane .door {
  background:#040;
  width: 50px;
  height: 20px;
@@ -138,7 +138,7 @@ div.lane span.door {
 
 }
 
-div.infopanel
+.infopanel
  {
   background: #DDD;
 position: absolute;
@@ -150,7 +150,7 @@ z-index:5000;
 font-size: 30px;
 }
 
-div.infopanel.small
+.infopanel.small
  {
   top :0px;
 right:0px;
