@@ -10,7 +10,7 @@
 	  avatar.posx=200;
 	  avatar.lanetime=Number(avatar.getAttribute("data-lanetime"));
 	  avatar.sidletime=Number(avatar.getAttribute("data-sidletime"));
-	  avatar.sidledistance=Number(avatar.getAttribute("data-sidledistance"));	
+	  avatar.sidledistance=Number(avatar.getAttribute("data-sidledistance"))*board.offsetWidth/100;
 	  
   }
   

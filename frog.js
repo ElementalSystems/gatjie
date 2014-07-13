@@ -178,7 +178,7 @@
       var bits=document.getElementsByClassName("lane");
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
-		l.speed=l.getAttribute("data-speed");
+		l.speed=l.getAttribute("data-speed")*board.offsetWidth/100;
 		l.lanecontent=l.getElementsByClassName("lanecontent")[0];
 		l.repeat=0;
 		//add up your childrens width
