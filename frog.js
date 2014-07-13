@@ -124,11 +124,15 @@
   
   function refreshBoardInfo()
   {
-      board.info.classList.toggle('small',board.isplaying);
+      if (board.info.classList.contains('small')) {
+	    if (!board.isplaying) board.info.classList.remove('small');
+	  } else {
+	    if (board.isplaying) board.info.classList.add('small');
+	  }
       board.infolives.innerHTML=board.lives.toString()+" / 5 lives";
 	  board.infogoals.innerHTML=board.goals.toString()+" / 5 goals";
 	  if (board.isplaying) 
-	    board.infocommand.innerHTML="Pause";
+	    board.infocommand.innerHTML="Restart";
 	  else
 	    board.infocommand.innerHTML="Play Now";
 		
