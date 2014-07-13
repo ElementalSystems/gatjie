@@ -5,24 +5,105 @@
 	<link rel="stylesheet" type="text/css" href="frog.css">
   </head>
   <body>
-  <br>
-  
+
   <div class="gameframe" tabindex="1">
-  <div class="infopanel"><div id="info_status"> Playing </div><div id="info_goals"> Goals 1/5 </div><div id="info_lives"> Lives 1/5 </div><a id="info_command" href='#'> Command </a></div>
-  <div class="board" >
-  <div class="lane edge" data-speed=0><div class="lanecontent"><span class="house refuse">H</span><span class="door target">D</span></div></div>
-  <div class="lane" data-speed=50><div class="lanecontent"><span class="bus kill">B</span><span class="gap">G</span><span class="bus kill">B</span><span class="gap4">&nbsp;</span></div></div>
-  <div class="lane" data-speed=20><div class="lanecontent"><span class="bus kill">B</span><span class="gap2">G2</span><span class="taxi kill">T</span><span class="gap2">G2</span></div></div>
-  <div class="lane" data-speed=160><div class="lanecontent"><span class="gap4">G4</span><span class="car kill">C</span></div></div>
-  <div class="lane divider" data-speed=0><div class="lanecontent"></div></div>
-  <div class="lane" data-speed=-80><div class="lanecontent"><span class="bus kill">B</span><span class="gap4">G4</span><span class="taxi kill">T</span><span class="gap4">G4</span></div></div>
-  <div class="lane" data-speed=-100><div class="lanecontent"><span class="car kill">C</span><span class="gap4">G4</span></div></div>
-  <div class="lane" data-speed=20><div class="lanecontent"><span class="bus kill">B</span><span class="gap4">G4</span></div></div>
-  <div class="lane edge" data-speed=0><div class="lanecontent"></div></div>
-  <div class="avatar" data-lanetime=150 data-sidletime=80 data-sidledistance=15><div class="avatarcontent" >U</div></div>
-  </div>
-  </div>
+
+    <div class="infopanel">
+      <div id="info_status"> Playing </div>
+      <div id="info_goals"> Goals 1/5 </div>
+      <div id="info_lives"> Lives 1/5 </div>
+      <a id="info_command" href='#'> Command </a>
+    </div>
+
+    <div class="board">
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent">
+          <span class="house refuse">H</span>
+          <span class="door target">
+            <img src="assets/target.png" alt="">
+          </span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="50">
+        <div class="lanecontent">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap">G</span>
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap4">&nbsp;</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="20">
+        <div class="lanecontent">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap2">G2</span>
+          <span class="taxi kill"><img src="assets/taxi-r.png" alt=""></span>
+          <span class="gap2">G2</span>
+        </div>
+      </div>
+
+    <div class="lane" data-speed="160">
+      <div class="lanecontent">
+        <span class="gap4">G4</span>
+        <span class="car kill"><img src="assets/car-r.png" alt=""></span>
+      </div>
+    </div>
+
+    <div class="lane divider" data-speed="0">
+      <div class="lanecontent"></div>
+    </div>
+
+    <div class="lane" data-speed="-80">
+      <div class="lanecontent">
+        <span class="bus kill">
+          <img src="assets/bus-l.png" alt="">
+        </span>
+        <span class="gap4">G4</span>
+        <span class="taxi kill"><img src="assets/taxi-l.png" alt=""></span>
+        <span class="gap4">G4</span>
+      </div>
+    </div>
+
+    <div class="lane" data-speed="-100">
+      <div class="lanecontent">
+        <span class="car kill"><img src="assets/car-l.png" alt=""></span>
+        <span class="gap4">G4</span>
+      </div>
+    </div>
+
+    <div class="lane" data-speed="20">
+      <div class="lanecontent">
+        <span class="bus kill">
+          <img src="assets/bus-r.png" alt="">
+        </span>
+        <span class="gap4">G4</span>
+      </div>
+    </div>
+
+    <div class="lane edge" data-speed="0">
+      <div class="lanecontent"></div>
+    </div>
+
+    <div class="avatar" data-lanetime=150 data-sidletime=80 data-sidledistance=15>
+      <div class="avatarcontent" >
+        <img src="assets/gatjie.png" alt="">
+      </div>
+    </div>
+
+    </div> <!-- / .board -->
+
+  </div><!-- / .gameframe -->
+
   <div id='status'>Status Text </div>
+
   <script src="support.js"></script>
   <script src="avatar.js"></script>
   <script src="frog.js"></script>

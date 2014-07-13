@@ -1,163 +1,156 @@
 
-  body {
-    margin:0px;
-    padding:0px;
-    text-align:center;	
-  }
-  
-  div.gameframe {
-    -webkit-perspective: 600px;
-	-webkit-perspective-origin: 50% 0%;
-	perspective: 600px;
-	perspective-origin: 50% 0%;
-	padding:100px;
-	background: #000;
-	width: 600px;
-	position: relative;
-  }
-  
-  
-  div.board {
-	 width:600px;
-	 background:#DDD;
-     overflow: hidden;
-	 position: relative;
-	 
-	 transform: rotateX(45deg);	 
-	 -webkit-transform: rotateX(45deg);	 
-	 
-	 perspective: 600px;
-	 perspective-origin: 50% 100%;
-	 -webkit-perspective: 600px;
-	 -webkit-perspective-origin: 50% 100%;
-	 
-  }
-  
-  div.lane
-  {
-    clear: left;  
-    width: 100%;	
-	height: 30px;
-	background: #555;
-	position: relative;
-    perspective: 600px;
-	perspective-origin: 50% 100%;
-	-webkit-perspective: 600px;
-	-webkit-perspective-origin: 50% 100%;
-	
-  }
-  
-  div.lanecontent
-  {
-    position: relative;
-    width: 9999px;	
-	transform: rotateX(-45deg);	 
-	-webkit-transform: rotateX(-45deg);	 
-  }
-  
-  div.avatar {
-     width:20px;
-	 height:20px;
-	 position: absolute;
-	 transform: rotateX(-45deg);
-	 -webkit-transform: rotateX(-45deg);	 
-  }
-  
-  div.avatarcontent {
-     width:100%;
-	 height:100%;
-     background: #00F;
-	 position: relative;
-	 top:-10px;
-	 
-  }
-  
-  
-  div.lane.divider
-  {
-    height: 15px;
-	background: #050;
-  }
-  
-  div.lane.edge
-  {
-    height: 50px;
-	background: #080;
-	
-  }
-  
-  div.lane span {
-    float: left;
-	height:100%;	
-	font-size: 0px; 
-  }
-  
-  div.lane span.gap {
-    width: 40px;
-	
-  }
-  
-  span.gap2 {
-    width: 80px;
-  }
-  
-  span.gap4 {
-    width: 160px;
-  }
-  
-  span.bus {
-   background:#F00;
-   width: 80px;   
-  }
-  
-  span.taxi {
-   background:#CC0;
-   width: 30px;   
-  }
-  
-  
-  span.car {
-   background:#0C0;
-   width: 30px;   
-  }
-    
-  div.lane span.house {
-   background:#999;
-   width: 100px;
-   height: 40px;
-   border: 5px solid #333;
-   border-radius: 10%;   
-  }
-  
-  div.lane span.door {
-   background:#040;
-   width: 50px;   
-   height: 20px;
-   border: 10px solid #0F0;
-   border-radius: 50%;   
-   
-  }
-  
-  div.infopanel
-   {
-    background: #DDD;
-	position: absolute;
-	top :20%;
-	right:20%;
-	left: 20%;
-	bottom:20%;
-	z-index:5000;
-	font-size: 30px;
-  }
-  
-  div.infopanel.small
-   {
-    top :0px;
-	right:0px;
-	left: auto;
-	bottom:auto;
-	width: 20%;
-	height: auto;
-	font-size: 12px;
-  }
-  
+body {
+  margin:0px;
+  padding:0px;
+  text-align:center;
+  background: #333;
+}
+
+.gameframe {
+  -webkit-perspective: 600px;
+  -webkit-perspective-origin: 50% 0%;
+  perspective: 600px;
+  perspective-origin: 50% 0%;
+  padding:100px;
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.board {
+  width:600px;
+  background:#DDD;
+  overflow: hidden;
+  position: relative;
+
+  transform: rotateX(45deg);
+  -webkit-transform: rotateX(45deg);
+
+  perspective: 600px;
+  perspective-origin: 50% 100%;
+  -webkit-perspective: 600px;
+  -webkit-perspective-origin: 50% 100%;
+}
+
+.lane {
+  clear: left;
+  width: 100%;
+height: 30px;
+background: #555;
+position: relative;
+  perspective: 600px;
+perspective-origin: 50% 100%;
+-webkit-perspective: 600px;
+-webkit-perspective-origin: 50% 100%;
+}
+
+.lanecontent {
+  position: relative;
+  width: 9999px;
+transform: rotateX(-45deg);
+-webkit-transform: rotateX(-45deg);
+}
+
+.avatar {
+   width:20px;
+ height:20px;
+ position: absolute;
+ transform: rotateX(-45deg);
+ -webkit-transform: rotateX(-45deg);
+}
+
+.avatarcontent {
+   width:100%;
+ height:100%;
+ position: relative;
+ top:-10px;
+
+}
+
+
+.lane span {
+  float: left;
+height:100%;
+font-size: 0px;
+}
+
+.gap {
+  width: 40px;
+}
+
+.gap2 {
+  width: 80px;
+}
+
+.gap4 {
+  width: 160px;
+}
+
+.bus {
+ width: 90px;
+}
+
+.taxi {
+ width: 50px;
+}
+
+
+.car {
+ width: 40px;
+}
+
+.lane .house {
+ width: 100px;
+ height: 40px;
+}
+
+.lane .door {
+ width: 50px;
+ height: 20px;
+}
+
+.infopanel {
+  background: #DDD;
+position: absolute;
+top :20%;
+right:20%;
+left: 20%;
+bottom:20%;
+z-index:5000;
+font-size: 30px;
+}
+
+.infopanel.small {
+  top :0px;
+right:0px;
+left: auto;
+bottom:auto;
+width: 20%;
+height: auto;
+font-size: 12px;
+}
+
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.lane {
+  background: grey url(assets/lane.png) 0 0 repeat-x;
+  background-size: contain;
+}
+
+.edge {
+  height: 50px;
+  background: brown url(assets/mud.png) 0 0 repeat-x;
+  background-size: cover;
+
+}
+
+.divider {
+  height: 15px;
+  background: green url(assets/grass.png) 0 0 repeat-x;
+  background-size: cover;
+}
