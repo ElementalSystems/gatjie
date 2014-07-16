@@ -133,8 +133,8 @@
 	  } else {
 	    if (board.isplaying) board.info.classList.add('small');
 	  }
-      board.infolives.innerHTML=board.lives.toString()+" / 5 lives";
-	  board.infogoals.innerHTML=board.goals.toString()+" / 5 goals";
+      board.infolives.innerHTML=board.lives.toString();
+	  board.infogoals.innerHTML=5-board.goals.toString();
 	  if (board.isplaying) 
 	    board.infocommand.innerHTML="Restart";
 	  else
