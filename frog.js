@@ -1,9 +1,8 @@
 
-  var lanes=[];
+  var lanes;
   var avatar;
   var board;
-  var status=document.getElementById("status");
-
+  
   function GameLoop(timeStamp)
   {
 		for (var i=0; i<lanes.length;i++)
@@ -110,72 +109,24 @@
 	  board.winState=0;
   }
 
+  function resetGame()
+  {
+      board.lives=5;
+	  board.currentLevel=0;
+  }
+  
   function resetBoard()
-  {
+  {      
+      var levid='level'+board.currentLevel;
+	  var level=document.getElementById(levid);
+	  board.innerHTML=level.innerHTML;
+      board.winState=0;
       board.focus();
-	  board.lives=5;
-	  board.goals=0;
-  }
+	  board.goals=5;	
 
-  function clickBoardStatus()
-  {
-
-	  resetAvatar();
-	  resetBoard();
-	  board.isplaying=true;
-	  refreshBoardInfo();
-  }
-
-  function refreshBoardInfo()
-  {
-      if (board.info.classList.contains('small')) {
-	    if (!board.isplaying) board.info.classList.remove('small');
-	  } else {
-	    if (board.isplaying) board.info.classList.add('small');
-	  }
-      board.infolives.innerHTML=board.lives.toString();
-	  board.infogoals.innerHTML=5-board.goals.toString();
-	  if (board.isplaying) 
-	    board.infocommand.innerHTML="Restart";
-	  else
-	    board.infocommand.innerHTML="Play Now";
-
-	  switch (board.winState) {
-	    case 0: board.infostatus.innerHTML="Welcome"; break;
-		case 1: board.infostatus.innerHTML="Game Paused"; break;
-		case 2: board.infostatus.innerHTML="You Won"; break;
-		case 3: board.infostatus.innerHTML="You Died"; break;
-	  }
-  }
-
-  function notifyBoardDeath()
-  {
-    board.lives-=1;
-	if (board.lives==0) {
-	   board.isplaying=false;
-	   board.winState=3;
-	}
-	refreshBoardInfo();
-	resetAvatar();
-  }
-
-
-  function notifyBoardWin()
-  {
-    board.goals+=1;
-	if (board.goals==5) {
-	   board.isplaying=false;
-	   board.winState=2;
-	}
-	refreshBoardInfo();
-	resetAvatar();
-  }
-
-  function play() {
-      setupBoard()
-
+	  lanes=[];
 	  //set up lanes
-      var bits=document.getElementsByClassName("lane");
+      var bits=board.getElementsByClassName("lane");
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
 		l.speed=l.getAttribute("data-speed")*board.offsetWidth/100;
@@ -211,6 +162,80 @@
 		lanes.push(l);
 	  }
 	  setupAvatar();
+	  resetAvatar();
+
+	  
+  }
+
+  function clickBoardStatus()
+  {
+      if (board.winState==0) {
+        resetGame();
+	    board.currentLevel=1;
+	  }
+      if (board.winState==2) {//you won keep going        
+	    board.currentLevel=board.currentLevel+1;
+	  }
+	  if (board.winState==3) { //you lost start from scratch
+        resetGame();
+	    board.currentLevel=1;
+	  }
+      
+      resetBoard();
+	  board.isplaying=true;
+	  refreshBoardInfo();
+	  
+  }
+
+  function refreshBoardInfo()
+  {
+      if (board.info.classList.contains('small')) {
+	    if (!board.isplaying) board.info.classList.remove('small');
+	  } else {
+	    if (board.isplaying) board.info.classList.add('small');
+	  }
+      board.infolives.innerHTML=board.lives.toString();
+	  board.infogoals.innerHTML=board.goals.toString();
+	  if (board.isplaying) 
+	    board.infocommand.innerHTML="Restart";
+	  else
+	    board.infocommand.innerHTML="Play Now";
+
+	  switch (board.winState) {
+	    case 0: board.infostatus.innerHTML="Welcome"; break;
+		case 1: board.infostatus.innerHTML="Game Paused"; break;
+		case 2: board.infostatus.innerHTML="You Won"; break;
+		case 3: board.infostatus.innerHTML="You Died"; break;
+	  }
+  }
+
+  function notifyBoardDeath()
+  {
+    board.lives-=1;
+	if (board.lives==0) {
+	   board.isplaying=false;
+	   board.winState=3;
+	}
+	refreshBoardInfo();
+	resetAvatar();
+  }
+
+
+  function notifyBoardWin()
+  {
+    board.goals-=1;
+	if (board.goals==0) {
+	   board.isplaying=false;
+	   board.winState=2;
+	}
+	refreshBoardInfo();
+	resetAvatar();
+  }
+
+  
+  function play() {
+      setupBoard();
+	  resetGame();
 	  resetBoard();
 	  resetAvatar();
 	  refreshBoardInfo();

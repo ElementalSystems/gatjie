@@ -12,12 +12,12 @@
   
   function setupAvatar()
   {
-      avatar=document.getElementsByClassName("avatar")[0];
+      avatar=board.getElementsByClassName("avatar")[0];
 	  avatar.command=0;	  
 	  avatar.move=MoveType.STILL;
 	  avatar.movestarttime=0;
 	  avatar.moveendtime=0;
-	  avatar.posx=200;
+	  avatar.posx=board.offsetWidth/2;
 	  avatar.lanetime=Number(avatar.getAttribute("data-lanetime"));
 	  avatar.sidletime=Number(avatar.getAttribute("data-sidletime"));
 	  avatar.sidledistance=Number(avatar.getAttribute("data-sidledistance"))*board.offsetWidth/100;	  
@@ -119,7 +119,7 @@
 		 avatar.moveendtime=timeStamp+500;
 		 setAvatarMove(MoveType.WIN);
 	   }
-	   status.innerHTML="   hittest:"+ht;
+	  
 	 }
 	 
 	 

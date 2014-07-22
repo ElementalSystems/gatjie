@@ -153,3 +153,7 @@ img {
   background: green url(assets/grass.png) 0 0 repeat-x;
   background-size: cover;
 }
+
+.level {
+  display: none;
+}
