@@ -201,7 +201,7 @@
   {
       if (board.winState==0) {
         resetGame();
-	    board.currentLevel=1;
+	    board.currentLevel=2;
 	  }
       if (board.winState==2) {//you won keep going        
 	    board.currentLevel=board.currentLevel+1;
