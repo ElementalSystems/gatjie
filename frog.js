@@ -106,6 +106,10 @@
 	  board.infolives=document.getElementById("info_lives");
       board.infolevelname=document.getElementById("info_levelname");
       board.infonextlevelname=document.getElementById("info_nextlevelname");
+  
+      board.sound_start=document.getElementById("sound_start");
+      board.sound_death=document.getElementById("sound_death");
+      board.sound_win=document.getElementById("sound_win");
 
 	  board.isplaying=false;
 	  board.winState=0;
@@ -166,7 +170,7 @@
 	  setupAvatar();
 	  resetAvatar();
 
-	  
+      
   }
 
   function clickBoardStatus()
@@ -185,6 +189,7 @@
       
       resetBoard();
 	  board.isplaying=true;
+	  board.sound_start.play();	  
 	  refreshBoardInfo();
 	  
   }

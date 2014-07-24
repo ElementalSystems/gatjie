@@ -48,7 +48,7 @@
   
   function moveAvatar(timeStamp) 
   {
-     if (avatar.move==MoveType.STILL) { //not currently moving
+     if ((avatar.move==MoveType.STILL)&&board.isplaying) { //not currently moving
 		 switch (avatar.command) {
 		 case 1:		 
 		 if (avatar.lane<=0) break;
@@ -113,11 +113,13 @@
 	 	 avatar.movestarttime=timeStamp;
 		 avatar.moveendtime=timeStamp+500;
 		 setAvatarMove(MoveType.DIE);
+		 board.sound_death.play();
 	   }
 	   if (ht=="t") {
 	 	 avatar.movestarttime=timeStamp;
 		 avatar.moveendtime=timeStamp+500;
 		 setAvatarMove(MoveType.WIN);
+		 board.sound_win.play();
 	   }
 	  
 	 }
