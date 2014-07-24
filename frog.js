@@ -34,9 +34,27 @@
 	 return "-";
   }
 
+  function pulseOffset(l,timeStamp)
+  {
+     if (l.pulsesize<.01) return 0;
+     var pulsePos=(timeStamp%l.pulsetime)*2.0/l.pulsetime-1;
+	 return pulsePos*pulsePos*l.pulsesize;   	 
+  }
+  
+  function pulseFactor(l,timeStamp)
+  {
+     if (l.pulsesize<1) return 0;
+     var pulsePos=(timeStamp%l.pulsetime)*2.0/l.pulsetime;
+	 if (pulsePos<1) {
+	    return pulsePos*l.pulsesize;   
+	 } else {
+	    return (2-pulsePos)*l.pulsesize; 
+	 }	 	 	 
+  }
+  
   function positionLane(l,timeStamp)
   {
-      l.laneoffset=(timeStamp*l.speed/1000)%l.repeat-l.repeat;
+      l.laneoffset=(timeStamp*l.speed/1000+pulseOffset(l,timeStamp))%l.repeat-l.repeat;
 	  l.lanecontent.style.left=l.laneoffset.toString()+"px";
   }
 
@@ -136,6 +154,11 @@
       for(var i = 0; i < bits.length; i++) {
 	    var l=bits[i];
 		l.speed=l.getAttribute("data-speed")*board.offsetWidth/100;
+		l.pulsetime=l.getAttribute("data-pulsetime");		
+		if (!l.pulsetime) l.pulsetime=1000;
+		l.pulsesize=l.getAttribute("data-pulsesize")*board.offsetWidth/100;
+		if (!l.pulsesize) l.pulsesize=0;
+				
 		l.lanecontent=l.getElementsByClassName("lanecontent")[0];
 		l.repeat=0;
 		//add up your childrens width
@@ -158,10 +181,11 @@
 		   }
 		}
 		if (l.repeat==0) l.repeat=3000;
-		//now double up on the content
+		//now double up on the content (I need at least two)
         var content=l.lanecontent.innerHTML;
 		var start=content+content;
-		for (var e=0;e < 2000/l.repeat;e+=1)
+		//- then keep adding on repeats until you have at least the width of the board plus one
+		for (var e=2;e < ((board.offsetWidth+l.repeat)/l.repeat)+1;e+=1)
 		  start+=content;
 		l.lanecontent.innerHTML=start;
 		l.bottomedge=l.offsetTop+l.offsetHeight;
@@ -201,7 +225,14 @@
 	  } else {
 	    if (board.isplaying) board.info.classList.add('inplay');
 	  }
-      board.infolives.innerHTML=board.lives.toString();
+	  
+      if (board.classList.contains('inplay')) {
+	    if (!board.isplaying) board.classList.remove('inplay');
+	  } else {
+	    if (board.isplaying) board.classList.add('inplay');
+	  }
+      
+	  board.infolives.innerHTML=board.lives.toString();
 	  board.infogoals.innerHTML=board.goals.toString();
 	 
 	  switch (board.winState) {
@@ -219,7 +250,8 @@
 	    nextlev=1;
 	  var levid='level'+nextlev;
 	  var level=document.getElementById(levid);
-	  board.infonextlevelname.innerHTML=level.getAttribute("data-description");
+	  if (level)
+	    board.infonextlevelname.innerHTML=level.getAttribute("data-description");
 	  
 	  
   }
