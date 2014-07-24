@@ -113,16 +113,16 @@ font-size: 0px;
 .infopanel {
   background: #DDD;
 position: absolute;
-top :40%;
+top :0px;
 right:40%;
 left: 40%;
-bottom:40%;
+bottom:auto;
 z-index:5000;
 font-size: 20px;
 }
 
-.infopanel.small {
-  top :0px;
+.infopanel.inplay {
+  
 right:0px;
 left: auto;
 bottom:auto;

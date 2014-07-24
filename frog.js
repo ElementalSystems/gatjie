@@ -104,6 +104,8 @@
 
 	  board.infogoals=document.getElementById("info_goals");
 	  board.infolives=document.getElementById("info_lives");
+      board.infolevelname=document.getElementById("info_levelname");
+      board.infonextlevelname=document.getElementById("info_nextlevelname");
 
 	  board.isplaying=false;
 	  board.winState=0;
@@ -189,24 +191,32 @@
 
   function refreshBoardInfo()
   {
-      if (board.info.classList.contains('small')) {
-	    if (!board.isplaying) board.info.classList.remove('small');
+      if (board.info.classList.contains('inplay')) {
+	    if (!board.isplaying) board.info.classList.remove('inplay');
 	  } else {
-	    if (board.isplaying) board.info.classList.add('small');
+	    if (board.isplaying) board.info.classList.add('inplay');
 	  }
       board.infolives.innerHTML=board.lives.toString();
 	  board.infogoals.innerHTML=board.goals.toString();
-	  if (board.isplaying) 
-	    board.infocommand.innerHTML="Restart";
-	  else
-	    board.infocommand.innerHTML="Play Now";
-
+	 
 	  switch (board.winState) {
 	    case 0: board.infostatus.innerHTML="Welcome"; break;
 		case 1: board.infostatus.innerHTML="Game Paused"; break;
 		case 2: board.infostatus.innerHTML="You Won"; break;
 		case 3: board.infostatus.innerHTML="You Died"; break;
 	  }
+	  //figure out level names
+	  var levid='level'+board.currentLevel;
+	  var level=document.getElementById(levid);
+	  board.infolevelname.innerHTML=level.getAttribute("data-description");
+	  var nextlev=board.currentLevel+1;
+	  if (board.winState==3) //death
+	    nextlev=1;
+	  var levid='level'+nextlev;
+	  var level=document.getElementById(levid);
+	  board.infonextlevelname.innerHTML=level.getAttribute("data-description");
+	  
+	  
   }
 
   function notifyBoardDeath()
