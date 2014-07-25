@@ -70,11 +70,15 @@
 	  var xdif=lastMouseX-x;
 	  var ydif=lastMouseY-y;
 	  if (Math.abs(xdif)>Math.abs(ydif)) { //move sideways
-	     if (xdif>0) avatar.command=4;
-		 else avatar.command=2;
+	     if (xdif>20) avatar.command=4;
+		 else if (xdif<-20) avatar.command=2;
 	  } else {  //move across
-	    if (ydif>0) avatar.command=1;
-		else avatar.command=3;
+	    if (ydif>20) avatar.command=1;
+		else if (ydif<-20) avatar.command=3;
+	  }
+	  if (avatar.command!=0) {
+	    lastMouseX=x;
+	    lastMouseY=y;
 	  }
 	}
   }
@@ -114,7 +118,17 @@
 		   evt.preventDefault();
 		 },false
 	     );
+  
+      board.addEventListener('touchmove',
+	     function(evt)
+	     {
+           var t=evt.changedTouches[0];
+           touchEvent(t.pageX,t.pageY,0);
+		   evt.preventDefault();
+		 },false
+	     );
 
+		 
 	  board.info=document.getElementsByClassName("infopanel")[0];
 	  board.infostatus=document.getElementById("info_status");
 	  board.infocommand=document.getElementById("info_command");
