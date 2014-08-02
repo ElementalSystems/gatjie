@@ -4,6 +4,7 @@ body {
   padding:0px;
   text-align:center;
   background: #333;
+  font-family: "Open Sans", sans-serif;
 }
 
 .gameframe {
@@ -133,25 +134,54 @@ font-size: 0px;
 }
 
 .infopanel {
-  background: #CCC;
-  opacity: 0.8;
-position: absolute;
-top :10%;
-right:40%;
-left: 40%;
-z-index:5000;
-font-size: 20px;
- transition:  top 2s, right 2s, left 2s;
- border: 5px solid #FFF;
- border-radius: 5px;
+  background: darkorange;
+  position: absolute;
+  top: 4em;
+  right: 30%;
+  left: 30%;
+  z-index: 1;
+  transition:  top 2s, right 2s, left 2s;
+  border-radius: 1em;
+  padding: 1em;
 }
 
 .infopanel.inplay {
-top: 0%;
-right:0%;
+top: 0;
+right: 0;
 left: 80%;
 height: auto;
 font-size: 14px;
+}
+
+.info_goals, .info_lives {
+  font-weight: bold;
+  font-size: 2em;
+  color: red;
+  text-shadow: black 1px 1px 1px;
+  margin-right: 0.1em;
+}
+
+.info_command {
+  text-decoration: none;
+}
+
+.btn {
+  background: cadetblue;
+  color: white;
+  border-radius: 1em;
+  padding: 0.25em 2em;
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}
+
+.info_nextlevelname {
+  background: gold;
+  color: white;
+  border-radius: 1em;
+  padding: 0.25em 2em;
+  display: inline-block;
+  clear: left;
+  position: relative;
 }
 
 img {
