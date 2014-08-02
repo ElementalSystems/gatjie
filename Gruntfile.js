@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -6,19 +8,31 @@ module.exports = function(grunt) {
     browserSync: {
       bsFiles: {
           src : 'frog.css'
-      },
-      options: {
+        },
+        options: {
           server: {
-              baseDir: "./"
+              baseDir: './'
+            }
+          },
+          watchTask: true
+        },
+        jshint: {
+          all: ['Gruntfile.js', '*.js']
+        },
+        watch: {
+          scripts: {
+            files: ['*.js'],
+            tasks: ['jshint']
           }
-      }
-    }
-  });
+        }
+      });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['browserSync']);
+  grunt.registerTask('default', ['browserSync', 'watch']);
 
 };
