@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     browserSync: {
       bsFiles: {
-          src : 'assets/css/*.css'
+          src : 'frog.css'
       },
       options: {
           server: {
