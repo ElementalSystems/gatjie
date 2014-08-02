@@ -217,38 +217,38 @@
         resetGame();
 	    board.currentLevel=1;
 	  }
-      if (board.winState==2) {//you won keep going        
+      if (board.winState==2) {//you won keep going
 	    board.currentLevel=board.currentLevel+1;
 	  }
 	  if (board.winState==3) { //you lost start from scratch
         resetGame();
 	    board.currentLevel=1;
 	  }
-      
+
       resetBoard();
 	  board.isplaying=true;
-	  board.sound_start.play();	  
+	  board.sound_start.play();
 	  refreshBoardInfo();
-	  
+
   }
 
   function refreshBoardInfo()
   {
-      if (board.info.classList.contains('inplay')) {
-	    if (!board.isplaying) board.info.classList.remove('inplay');
+      if (board.info.classList.contains('infopanel-inplay')) {
+	    if (!board.isplaying) board.info.classList.remove('infopanel-inplay');
 	  } else {
-	    if (board.isplaying) board.info.classList.add('inplay');
+	    if (board.isplaying) board.info.classList.add('infopanel-inplay');
 	  }
-	  
-      if (board.classList.contains('inplay')) {
-	    if (!board.isplaying) board.classList.remove('inplay');
+
+      if (board.classList.contains('gameframe-inplay')) {
+	    if (!board.isplaying) board.classList.remove('gameframe-inplay');
 	  } else {
-	    if (board.isplaying) board.classList.add('inplay');
+	    if (board.isplaying) board.classList.add('gameframe-inplay');
 	  }
-      
+
 	  board.infolives.innerHTML=board.lives.toString();
 	  board.infogoals.innerHTML=board.goals.toString();
-	 
+
 	  switch (board.winState) {
 	    case 0: board.infostatus.innerHTML="Welcome"; break;
 		case 1: board.infostatus.innerHTML="Game Paused"; break;

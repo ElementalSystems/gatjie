@@ -8,11 +8,11 @@ body {
 }
 
 .gameframe {
-  -webkit-perspective: 600px;
-  -webkit-perspective-origin: 50% 0%;
-  perspective: 600px;
-  perspective-origin: 50% 0%;
-  padding-top:40px;
+  // -webkit-perspective: 600px;
+  // -webkit-perspective-origin: 50% 0%;
+  // perspective: 600px;
+  // perspective-origin: 50% 0%;
+  padding-top: 1em;
   width: 600px;
   margin: 0 auto;
   position: relative;
@@ -25,77 +25,73 @@ body {
   overflow: hidden;
   position: relative;
 
-  transform: rotateX(30deg) scale(1.2);
-  -webkit-transform: rotateX(30deg) scale(1.2);
-
-  perspective: 600px;
-  perspective-origin: 50% 100%;
-  -webkit-perspective: 600px;
-  -webkit-perspective-origin: 50% 100%;
-  transition: transform 2s 2s;
+  // transform: rotateX(30deg) scale(1.2);
+  // -webkit-transform: rotateX(30deg) scale(1.2);
+  // perspective: 600px;
+  // perspective-origin: 50% 100%;
+  // -webkit-perspective: 600px;
+  // -webkit-perspective-origin: 50% 100%;
+  // transition: transform 2s 2s;
 }
 
-.gameframe .board 
-{
-  transform: rotateX(0deg) scale(1);
-  -webkit-transform: rotateX(0deg) scale(1);
+.gameframe .board {
+  // transform: rotateX(0deg) scale(1);
+  // -webkit-transform: rotateX(0deg) scale(1);
 }
 
-.gameframe.inplay  .board
-{
-  transform: rotateX(30deg) scale(1.2);
-  -webkit-transform: rotateX(30deg) scale(1.2);
+.gameframe-inplay  .board {
+  // transform: rotateX(30deg) scale(1.2);
+  // -webkit-transform: rotateX(30deg) scale(1.2);
 }
 
 .lane {
   clear: left;
   width: 100%;
-height: 30px;
-background: #555;
-position: relative;
-  perspective: 600px;
-perspective-origin: 50% 100%;
--webkit-perspective: 600px;
--webkit-perspective-origin: 50% 100%;
+  height: 30px;
+  background: #555;
+  position: relative;
+  // perspective: 600px;
+  // perspective-origin: 50% 100%;
+  // -webkit-perspective: 600px;
+  // -webkit-perspective-origin: 50% 100%;
 }
 
 .lanecontent {
   position: relative;
   width: 9999px;
-  transition: transform 1s 3s;
+  // transition: transform 1s 3s;
 }
 
-.gameframe.inplay .lanecontent {
-transform: rotateX(-30deg) scaleY(1.2);
--webkit-transform: rotateX(-30deg) scaleY(1.2);
+.gameframe-inplay .lanecontent {
+// transform: rotateX(-30deg) scaleY(1.2);
+// -webkit-transform: rotateX(-30deg) scaleY(1.2);
 }
 
 .gameframe .lanecontent {
-transform: rotateX(0deg) scaleY(1);
--webkit-transform: rotateX(0deg) scaleY(1);
+// transform: rotateX(0deg) scaleY(1);
+// -webkit-transform: rotateX(0deg) scaleY(1);
 }
 
 .avatar {
-   width:20px;
- height:20px;
- position: absolute;
- transform: rotateX(-30deg);
- -webkit-transform: rotateX(-30deg);
+  width:20px;
+  height:20px;
+  position: absolute;
+  // transform: rotateX(-30deg);
+  // -webkit-transform: rotateX(-30deg);
 }
 
 .avatarcontent {
-   width:100%;
- height:100%;
- position: relative;
- top:-10px;
-
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -0.5em;
 }
 
 
 .lane span {
   float: left;
-height:100%;
-font-size: 0px;
+  height: 100%;
+  font-size: 0px;
 }
 
 .gap {
@@ -123,34 +119,31 @@ font-size: 0px;
  width: 40px;
 }
 
-.lane .house {
+.house {
  width: 100px;
  height: 40px;
 }
 
-.lane .door {
+.door {
  width: 50px;
  height: 20px;
 }
 
 .infopanel {
   background: darkorange;
+  background: rgba(255, 140, 0, 0.9);
   position: absolute;
-  top: 4em;
-  right: 30%;
-  left: 30%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 3;
   z-index: 1;
-  transition:  top 2s, right 2s, left 2s;
-  border-radius: 1em;
-  padding: 1em;
+  padding: 2em;
 }
 
-.infopanel.inplay {
-top: 0;
-right: 0;
-left: 80%;
-height: auto;
-font-size: 14px;
+.infopanel-inplay {
+  position: relative;
+  margin-top: 2em;
 }
 
 .info_goals, .info_lives {
@@ -166,20 +159,19 @@ font-size: 14px;
 }
 
 .btn {
-  background: cadetblue;
   color: white;
   border-radius: 1em;
   padding: 0.25em 2em;
   display: inline-block;
-  margin: 0 1em 1em 0;
+  border-bottom: solid 0.2em rgba(0, 0, 0, 0.2);
 }
 
+.start {
+  background: cadetblue;
+  margin: 0 1em 1em 0;
+}
 .info_nextlevelname {
   background: gold;
-  color: white;
-  border-radius: 1em;
-  padding: 0.25em 2em;
-  display: inline-block;
   clear: left;
   position: relative;
 }
