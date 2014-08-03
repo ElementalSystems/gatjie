@@ -12,10 +12,8 @@ body {
   // -webkit-perspective-origin: 50% 0%;
   // perspective: 600px;
   // perspective-origin: 50% 0%;
-  // width: 600px;
   margin: 0 auto;
   position: relative;
-  height: 100%;
 }
 
 
@@ -57,9 +55,7 @@ body {
 
 .lanecontent {
   position: relative;
-  width: 200%;
-  height: 100%;
-  overflow: hidden;
+  width: 3000px; // 600px x 5 ?
   // transition: transform 1s 3s;
 
 }
@@ -89,8 +85,6 @@ body {
 }
 
 .avatar {
-  width: 3%;
-  // height: 20px;
   position: absolute;
   // transform: rotateX(-30deg);
   // -webkit-transform: rotateX(-30deg);
@@ -107,37 +101,6 @@ body {
   float: left;
   height: 100%;
   font-size: 0px;
-}
-
-.gap {
-  width: 3.25%;
-}
-
-.gap2 {
-  width: 6.5%;
-}
-
-.gap4 {
-  width: 13%;
-}
-
-.bus {
- width: 7%;
-}
-
-.taxi {
- width: 3.5%;
-}
-
-
-.car {
- width: 2.5%;
- position: relative;
- top: 20%;
-}
-
-.door {
- width: 3.5%;
 }
 
 .infopanel {
@@ -211,24 +174,53 @@ img {
   display: none;
 }
 
-// lane heights
+// All the sizes together
 
-// 1 divider (w1), 6 lanes (w2) = 13
-
-.lanes-7 .divider {
-  height: 7.692307692%; // 100/13
+.gameframe {
+  width: 600px;
 }
 
-.lanes-7 .lane {
-  height: 15.384615384%;
+.lane {
+  height: 30px;
 }
 
-// 1 divider (w1), 8 lanes (w2) = 17
-
-.lanes-9 .divider {
-  height: 5.882352941%; // 100/17
+.divider {
+  height: 15px;
 }
 
-.lanes-9 .lane {
-  height: %;
+.avatar {
+  width: 20px;
+  height: 20px;
+}
+
+.avatarcontent {
+  top: -10px;
+}
+
+.gap {
+  width: 40px;
+}
+
+.gap2 {
+  width: 80px;
+}
+
+.gap4 {
+  width: 160px;
+}
+
+.bus {
+ width: 90px;
+}
+
+.taxi {
+ width: 50px;
+}
+
+.car {
+ width: 40px;
+}
+
+.door {
+ width: 50px;
 }
