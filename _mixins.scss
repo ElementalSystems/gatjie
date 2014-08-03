@@ -1,0 +1,38 @@
+
+@mixin myperspective() {
+   perspective: 800px;
+   -moz-perspective: 800px;
+   -webkit-perspective: 800px;     
+}
+
+@mixin transform($funcs)
+{
+  transform: $funcs;
+  -webkit-transform: $funcs;
+  -moz-transform: $funcs;
+  -ms-transform: $funcs;  
+}
+
+@mixin transition($funcs...)
+{
+  transition: $funcs;
+  -webkit-transition: $funcs;
+  -moz-transition: $funcs;
+  -o-transition: $funcs;
+  
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+}

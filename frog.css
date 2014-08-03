@@ -1,3 +1,63 @@
+@-webkit-keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@-moz-keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@-o-keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@-webkit-keyframes swerve {
+  25% {
+    top: -15px; }
+
+  90% {
+    top: 5px; } }
+@-moz-keyframes swerve {
+  25% {
+    top: -15px; }
+
+  90% {
+    top: 5px; } }
+@-o-keyframes swerve {
+  25% {
+    top: -15px; }
+
+  90% {
+    top: 5px; } }
+@keyframes swerve {
+  25% {
+    top: -15px; }
+
+  90% {
+    top: 5px; } }
 body {
   margin: 0;
   padding: 1em 0;

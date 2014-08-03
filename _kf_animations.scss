@@ -1,0 +1,11 @@
+@include keyframes(bounce) {   
+  25% {  transform:rotate(2deg) scaleX(1.01); }
+  50% {  transform:rotate(0deg) scaleX(.99); }
+  75% {  transform:rotate(-2deg) scaleX(1.01); }    
+  }
+
+
+@include keyframes(swerve) {   
+  25% {  top: -15px; }
+  90% {  top: 5px; }    
+}
