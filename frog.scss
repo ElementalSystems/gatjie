@@ -1,3 +1,5 @@
+$tiltAmount: 25deg;
+
 @mixin myperspective() {
    perspective: 800px;
    -moz-perspective: 800px;
@@ -61,7 +63,7 @@ body {
 }
 
 .gameframe-inplay  .board {
-  @include transform(rotateX(30deg) scale(1.2));
+  @include transform(rotateX($tiltAmount) scale(1.2));
 }
 
 .lane {
@@ -94,13 +96,13 @@ body {
 }
 
 .gameframe-inplay .lanecontent {
-  @include transform(rotateX(-30deg) scaleY(1.2))
+  @include transform(rotateX(-$tiltAmount) scaleY(1.2))
 }
 
 
 .avatar {
   position: absolute;
-  @include transform(rotateX(-30deg))
+  @include transform(rotateX(-$tiltAmount))
 }
 
 .avatarcontent {

@@ -29,10 +29,10 @@ body {
   -o-transition: transform 2s 2s; }
 
 .gameframe-inplay .board {
-  transform: rotateX(30deg) scale(1.2);
-  -webkit-transform: rotateX(30deg) scale(1.2);
-  -moz-transform: rotateX(30deg) scale(1.2);
-  -ms-transform: rotateX(30deg) scale(1.2); }
+  transform: rotateX(25deg) scale(1.2);
+  -webkit-transform: rotateX(25deg) scale(1.2);
+  -moz-transform: rotateX(25deg) scale(1.2);
+  -ms-transform: rotateX(25deg) scale(1.2); }
 
 .lane {
   clear: left;
@@ -67,17 +67,17 @@ body {
   *zoom: 1; }
 
 .gameframe-inplay .lanecontent {
-  transform: rotateX(-30deg) scaleY(1.2);
-  -webkit-transform: rotateX(-30deg) scaleY(1.2);
-  -moz-transform: rotateX(-30deg) scaleY(1.2);
-  -ms-transform: rotateX(-30deg) scaleY(1.2); }
+  transform: rotateX(-25deg) scaleY(1.2);
+  -webkit-transform: rotateX(-25deg) scaleY(1.2);
+  -moz-transform: rotateX(-25deg) scaleY(1.2);
+  -ms-transform: rotateX(-25deg) scaleY(1.2); }
 
 .avatar {
   position: absolute;
-  transform: rotateX(-30deg);
-  -webkit-transform: rotateX(-30deg);
-  -moz-transform: rotateX(-30deg);
-  -ms-transform: rotateX(-30deg); }
+  transform: rotateX(-25deg);
+  -webkit-transform: rotateX(-25deg);
+  -moz-transform: rotateX(-25deg);
+  -ms-transform: rotateX(-25deg); }
 
 .avatarcontent {
   width: 100%;
