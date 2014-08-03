@@ -1,9 +1,281 @@
 <html>
   <head>
-    <title>Gatjie Kermit Thang</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<meta http-equiv="refresh" content="0; url=frog.html" />
+    <title>Gatjie</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="frog.css">
+  <link rel="apple-touch-startup-image" href="assets/gatjie.png">
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+  <!-- <meta name="mobile-web-app-capable" content="yes"> -->
   </head>
   <body>
+
+  <div class="gameframe" tabindex="1">
+  </div><!-- / .gameframe -->
+
+  <div class="infopanel">
+    <div id="info_levelname"> This Level </div>
+    <div id="info_status"> Playing </div>
+    <div> Goals left <span id="info_goals" class="info_goals">1</span>/5 </div>
+    <div> Lives <span id="info_lives" class="info_lives">1</span>/5 </div>
+    <br/>
+    <a id="info_command" href='#' class="info_command"> <span class="btn start">Start!</span> <div id="info_nextlevelname" class="btn info_nextlevelname"> Next Level </div></a>
+  </div>
+
+  <div class="level" id="level0" data-description="">
+
+    <div class="board">
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent clearfix">
+          <span class="gap4">G1</span>
+          <span class="door target">
+            <img src="assets/target.png" alt="">
+          </span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="7">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap">G</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="10">
+        <div class="lanecontent clearfix">
+          <span class="taxi kill"><img src="assets/taxi-r.png" alt=""></span>
+          <span class="gap2">G2</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="10">
+        <div class="lanecontent clearfix">
+          <span class="gap">G</span>
+          <span class="car kill"><img src="assets/car-r.png" alt=""></span>
+        </div>
+      </div>
+
+      <div class="lane divider" data-speed="0">
+        <div class="lanecontent clearfix"></div>
+      </div>
+
+      <div class="lane" data-speed="-25">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-l.png" alt="">
+          </span>
+          <span class="gap4">G4</span>
+          <span class="taxi kill"><img src="assets/taxi-l.png" alt=""></span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="-10">
+        <div class="lanecontent clearfix">
+          <span class="car kill"><img src="assets/car-l.png" alt=""></span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="-5">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent clearfix"></div>
+      </div>
+
+      <div class="avatar" data-lanetime=150 data-sidletime=80 data-sidledistance=2>
+        <div class="avatarcontent" >
+          <img src="assets/gatjie.png" alt="">
+        </div>
+      </div>
+
+    </div> <!-- / .board -->
+
+  </div>
+
+  <div class="level" id="level1" data-description="A Suburban Morning">
+
+    <div class="board">
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent clearfix">
+          <span class="gap">G4</span>
+          <span class="door target">
+            <img src="assets/target.png" alt="">
+          </span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="7">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap4">G</span>
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap4">&nbsp;</span>
+  		  <span class="gap4">&nbsp;</span>
+  		  <span class="gap4">&nbsp;</span>
+          </div>
+      </div>
+
+      <div class="lane" data-speed="12">
+        <div class="lanecontent clearfix">
+          <span class="gap4">G4</span>
+          <span class="car kill"><img src="assets/car-r.png" alt=""></span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane divider" data-speed="0">
+        <div class="lanecontent clearfix"></div>
+      </div>
+
+      <div class="lane" data-speed="-15" data-pulsetime=1500 data-pulsesize=3>
+        <div class="lanecontent clearfix">
+          <span class="gap4">G4</span>
+          <span class="gap4">G4</span>
+          <span class="gap4">G4</span>
+          <span class="taxi kill"><img src="assets/taxi-l.png" alt=""></span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="-10">
+        <div class="lanecontent clearfix">
+          <span class="car kill"><img src="assets/car-l.png" alt=""></span>
+          <span class="gap">G4</span>
+      		<span class="car kill"><img src="assets/car-l.png" alt=""></span>
+              <span class="gap4">G4</span><span class="gap4">G4</span>
+      		<span class="gap4">G4</span><span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent clearfix"></div>
+      </div>
+
+      <div class="avatar" data-lanetime=150 data-sidletime=80 data-sidledistance=2>
+        <div class="avatarcontent" >
+          <img src="assets/gatjie.png" alt="">
+        </div>
+      </div>
+
+    </div> <!-- / .board -->
+
+  </div>
+
+  <div class="level" id="level2" data-description="Soweto in Rush Hour">
+    <div class="board">
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent clearfix">
+          <span class="gap2">G2</span>
+          <span class="door target">
+            <img src="assets/target.png" alt="">
+          </span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="7">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap">G</span>
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap4">&nbsp;</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="10" data-pulsesize=1 data-pulsetime=3000>
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap2">G2</span>
+          <span class="taxi kill"><img src="assets/taxi-r.png" alt=""></span>
+          <span class="gap2">G2</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="22">
+        <div class="lanecontent clearfix">
+          <span class="gap4">G4</span>
+          <span class="car kill"><img src="assets/car-r.png" alt=""></span>
+        </div>
+      </div>
+
+      <div class="lane divider" data-speed="0">
+        <div class="lanecontent clearfix"></div>
+      </div>
+
+      <div class="lane" data-speed="-25">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-l.png" alt="">
+          </span>
+          <span class="gap4">G4</span>
+          <span class="taxi kill"><img src="assets/taxi-l.png" alt=""></span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="-15" data-pulsetime=1000 data-pulsesize=1>
+        <div class="lanecontent clearfix">
+          <span class="car kill"><img src="assets/car-l.png" alt=""></span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane" data-speed="-5">
+        <div class="lanecontent clearfix">
+          <span class="bus kill">
+            <img src="assets/bus-r.png" alt="">
+          </span>
+          <span class="gap4">G4</span>
+        </div>
+      </div>
+
+      <div class="lane edge" data-speed="0">
+        <div class="lanecontent clearfix"></div>
+      </div>
+
+      <div class="avatar" data-lanetime=150 data-sidletime=80 data-sidledistance=2>
+        <div class="avatarcontent" >
+          <img src="assets/gatjie.png" alt="">
+        </div>
+      </div>
+
+    </div> <!-- / .board -->
+
+  </div><!-- / .gameframe -->
+
+  <audio id="sound_start" preload="auto">
+  <source src="assets/start.wav" type="audio/wav">
+  </audio>
+  <audio id="sound_death" preload="auto">
+  <source src="assets/death.wav" type="audio/wav">
+  </audio>
+  <audio id="sound_win" preload="auto">
+  <source src="assets/win.wav" type="audio/wav">
+  </audio>
+
+  <script src="support.js"></script>
+  <script src="avatar.js"></script>
+  <script src="frog.js"></script>
   </body>
 </html>
