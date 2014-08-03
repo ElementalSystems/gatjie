@@ -1,4 +1,4 @@
-@-webkit-keyframes bounce {
+@-webkit-keyframes wiggle {
   25% {
     transform: rotate(2deg) scaleX(1.01); }
 
@@ -7,7 +7,7 @@
 
   75% {
     transform: rotate(-2deg) scaleX(1.01); } }
-@-moz-keyframes bounce {
+@-moz-keyframes wiggle {
   25% {
     transform: rotate(2deg) scaleX(1.01); }
 
@@ -16,7 +16,7 @@
 
   75% {
     transform: rotate(-2deg) scaleX(1.01); } }
-@-o-keyframes bounce {
+@-o-keyframes wiggle {
   25% {
     transform: rotate(2deg) scaleX(1.01); }
 
@@ -25,7 +25,7 @@
 
   75% {
     transform: rotate(-2deg) scaleX(1.01); } }
-@keyframes bounce {
+@keyframes wiggle {
   25% {
     transform: rotate(2deg) scaleX(1.01); }
 
@@ -317,7 +317,11 @@ img {
     width: 240px; }
 
   .bus {
-    width: 135px; }
+    width: 135px;
+    -webkit-animation: wiggle 0.8s ease infinite;
+    -moz-animation: wiggle 0.8s ease infinite;
+    -o-animation: wiggle 0.8s ease infinite;
+    animation: wiggle 0.8s ease infinite; }
 
   .taxi {
     width: 75px; }
