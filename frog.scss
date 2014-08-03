@@ -45,8 +45,7 @@ body {
 }
 
 .gameframe {
-  -webkit-perspective-origin: 50% 0%;
-  perspective-origin: 50% 0%;
+  @include myperspective;
   margin: 0 auto;
   position: relative;
 }
@@ -56,21 +55,13 @@ body {
   background:#DDD;
   overflow: hidden;
   position: relative;
-  transform: rotateX(30deg) scale(1.2);
-  -webkit-transform: rotateX(30deg) scale(1.2);
-  perspective-origin: 50% 100%;
-  -webkit-perspective-origin: 50% 100%;
-  transition: transform 2s 2s;
-}
-
-.gameframe .board {
-  transform: rotateX(0deg) scale(1);
-  -webkit-transform: rotateX(0deg) scale(1);
+  @include transform(rotateX(0deg) scale(1));
+  @include myperspective;
+  @include transition(transform 2s 2s);
 }
 
 .gameframe-inplay  .board {
-  transform: rotateX(30deg) scale(1.2);
-  -webkit-transform: rotateX(30deg) scale(1.2);
+  @include transform(rotateX(30deg) scale(1.2));
 }
 
 .lane {
@@ -78,14 +69,14 @@ body {
   width: 100%;
   background: #555;
   position: relative;
-  perspective-origin: 50% 100%;
-  -webkit-perspective-origin: 50% 100%;
+  @include myperspective;
 }
 
 .lanecontent {
   position: relative;
   width: 9999px;
-  transition: transform 1s 3s;
+  @include transition(transform 1s 3s);
+  @include transform(rotateX(0deg) scaleY(1));  
 }
 
 .clearfix:before,
@@ -103,19 +94,13 @@ body {
 }
 
 .gameframe-inplay .lanecontent {
-  transform: rotateX(-30deg) scaleY(1.2);
-  -webkit-transform: rotateX(-30deg) scaleY(1.2);
+  @include transform(rotateX(-30deg) scaleY(1.2))
 }
 
-.gameframe .lanecontent {
-  transform: rotateX(0deg) scaleY(1);
-  -webkit-transform: rotateX(0deg) scaleY(1);
-}
 
 .avatar {
   position: absolute;
-  transform: rotateX(-30deg);
-  -webkit-transform: rotateX(-30deg);
+  @include transform(rotateX(-30deg))
 }
 
 .avatarcontent {
@@ -253,12 +238,6 @@ img {
   width: 25px;
 }
 
-.gameframe,
-.board,
-.lane {
-  -webkit-perspective: 300px;
-  perspective: 300px;
-}
 
 @media screen and (min-width: 550px) {
   .gameframe {
