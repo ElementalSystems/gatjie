@@ -1,38 +1,37 @@
-
 body {
-  margin:0px;
-  padding:0px;
-  text-align:center;
-  background: #333;
-}
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  background: #333; }
 
 .gameframe {
   perspective: 800px;
-  padding-top:40px;
+  -moz-perspective: 800px;
+  -webkit-perspective: 800px;
+  padding-top: 40px;
   width: 800px;
   margin: 0 auto;
-  position: relative;
-}
-
+  position: relative; }
 
 .board {
-  width:100%;
-  background:#DDD;
+  width: 100%;
+  background: #DDD;
   overflow: hidden;
   position: relative;
   transition: transform 3s;
-}
-
-.gameframe .board 
-{
+  -webkit-transition: transform 3s;
+  -moz-transition: transform 3s;
+  -o-transition: transform 3s;
   transform: rotateX(0deg);
- 
-}
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg); }
 
-.gameframe.inplay  .board
-{
+.gameframe.inplay .board {
   transform: rotateX(45deg);
-}
+  -webkit-transform: rotateX(45deg);
+  -moz-transform: rotateX(45deg);
+  -ms-transform: rotateX(45deg); }
 
 .lane {
   position: relative;
@@ -41,104 +40,145 @@ body {
   height: 50px;
   position: relative;
   perspective: 800px;
-  perspective-origin: 50% 100%;
-}
+  -moz-perspective: 800px;
+  -webkit-perspective: 800px; }
 
 .lanecontent {
   position: absolute;
   width: 500%;
-  overflow:hidden;
+  overflow: hidden;
   display: block;
-  text-align:left;
+  text-align: left;
   transition: transform 3s, top 3s, height 3s;
-}
+  -webkit-transition: transform 3s, top 3s, height 3s;
+  -moz-transition: transform 3s, top 3s, height 3s;
+  -o-transition: transform 3s, top 3s, height 3s; }
 
-.gameframe .lanecontent
-{
-  height: 150%;  
-  top: -50%;    
+.gameframe .lanecontent {
+  height: 150%;
+  top: -50%;
   transform: rotateX(0deg);
-}
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg); }
 
-.gameframe.inplay  .lanecontent
-{
-  height: 200%;  
-  top: -80%;    
+.gameframe.inplay .lanecontent {
+  height: 200%;
+  top: -80%;
   transform: rotateX(-45deg);
-}
-
+  -webkit-transform: rotateX(-45deg);
+  -moz-transform: rotateX(-45deg);
+  -ms-transform: rotateX(-45deg); }
 
 .lanecontent span {
   position: relative;
   font-size: 0px;
   display: inline-block;
   height: 100%;
-  vertical-align: bottom;
-}
+  vertical-align: bottom; }
 
+@-webkit-keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
 
-@keyframes bounce {   
-  25% {  transform:rotate(2deg) scaleX(1.01); }
-  50% {  transform:rotate(0deg) scaleX(.99); }
-  75% {  transform:rotate(-2deg) scaleX(1.01); }    
-  }
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
 
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@-moz-keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@-o-keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
+@keyframes bounce {
+  25% {
+    transform: rotate(2deg) scaleX(1.01); }
+
+  50% {
+    transform: rotate(0deg) scaleX(0.99); }
+
+  75% {
+    transform: rotate(-2deg) scaleX(1.01); } }
 .lanecontent .bus {
-   width: 140px;   
+  width: 140px;
   background: url(assets/bus-r.png);
   background-size: 100% 100%;
-  animation: bounce .5s ease infinite ; 
-}
-
+  -webkit-animation: bounce 0.5s ease infinite;
+  -moz-animation: bounce 0.5s ease infinite;
+  -o-animation: bounce 0.5s ease infinite;
+  animation: bounce 0.5s ease infinite; }
 
 .lanecontent .backdrop {
-   background: #000;   
-   width: 300px;   
-   
-}
+  background: #000;
+  width: 300px; }
 
+@-webkit-keyframes swerve {
+  25% {
+    top: -15px; }
 
-@keyframes swerve {   
-  25% {  top: -15px; }
-  90% {  top: 5px; }    
-  }
+  90% {
+    top: 5px; } }
+@-moz-keyframes swerve {
+  25% {
+    top: -15px; }
 
+  90% {
+    top: 5px; } }
+@-o-keyframes swerve {
+  25% {
+    top: -15px; }
+
+  90% {
+    top: 5px; } }
+@keyframes swerve {
+  25% {
+    top: -15px; }
+
+  90% {
+    top: 5px; } }
 .lanecontent .taxi {
-   background: #FF0;   
-   width: 80px;
-   height: 80%;
-   background: url(assets/taxi-r.png);
-   background-size: 100% 100%;
-   animation: swerve 2s ease infinite ; 
-   top: 0px;
-  }
-
+  background: #FF0;
+  width: 80px;
+  height: 80%;
+  background: url(assets/taxi-r.png);
+  background-size: 100% 100%;
+  -webkit-animation: swerve 2s ease infinite;
+  -moz-animation: swerve 2s ease infinite;
+  -o-animation: swerve 2s ease infinite;
+  animation: swerve 2s ease infinite;
+  top: 0px; }
 
 .gap {
-  width: 40px;
-}
-
+  width: 40px; }
 
 .lane {
-  background: grey url(assets/lane.png) 0 0 repeat-x;
+  background: gray url(assets/lane.png) 0 0 repeat-x;
   background-size: contain;
   position: relative;
-  overflow: visible;
-}
+  overflow: visible; }
 
 .edge {
   background: brown url(assets/mud.png) 0 0 repeat-x;
-  background-size: cover;
-  
-}
-
+  background-size: cover; }
 
 .divider {
   height: 15px;
   background: green url(assets/grass.png) 0 0 repeat-x;
-  background-size: cover;
-}
+  background-size: cover; }
 
 .level {
-  display: none;
-}
+  display: none; }

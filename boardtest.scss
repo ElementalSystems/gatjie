@@ -1,0 +1,183 @@
+@mixin set-perspective() {
+   perspective: 800px;
+   -moz-perspective: 800px;
+   -webkit-perspective: 800px;     
+}
+
+@mixin set-transform($funcs)
+{
+  transform: $funcs;
+  -webkit-transform: $funcs;
+  -moz-transform: $funcs;
+  -ms-transform: $funcs;  
+}
+
+@mixin set-transition($funcs...)
+{
+  transition: $funcs;
+  -webkit-transition: $funcs;
+  -moz-transition: $funcs;
+  -o-transition: $funcs;
+  
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+}
+
+@mixin animation($animate) {
+    -webkit-animation: $animate;
+    -moz-animation:    $animate;
+    -o-animation:      $animate;
+    animation:         $animate;
+}
+
+body {
+  margin:0px;
+  padding:0px;
+  text-align:center;
+  background: #333;
+}
+
+.gameframe {
+  @include set-perspective();
+  
+  padding-top:40px;
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.board {
+  width:100%;
+  background:#DDD;
+  overflow: hidden;
+  position: relative;
+  @include set-transition(transform 3s);
+  @include set-transform(rotateX(0deg));   
+}
+
+.gameframe.inplay  .board
+{
+  @include set-transform(rotateX(45deg));   
+}
+
+.lane {
+  position: relative;
+  clear: left;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  
+  @include set-perspective();   
+}
+
+.lanecontent {
+  position: absolute;
+  width: 500%;
+  overflow:hidden;
+  display: block;
+  text-align:left;
+  @include set-transition(transform 3s, top 3s, height 3s);
+}
+
+.gameframe .lanecontent
+{
+  height: 150%;  
+  top: -50%;    
+  @include set-transform(rotateX(0deg));   
+}
+
+.gameframe.inplay  .lanecontent
+{
+  height: 200%;  
+  top: -80%;    
+  @include set-transform(rotateX(-45deg));   
+}
+
+
+.lanecontent span {
+  position: relative;
+  font-size: 0px;
+  display: inline-block;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+
+@include keyframes(bounce) {   
+  25% {  transform:rotate(2deg) scaleX(1.01); }
+  50% {  transform:rotate(0deg) scaleX(.99); }
+  75% {  transform:rotate(-2deg) scaleX(1.01); }    
+  }
+
+.lanecontent .bus {
+  width: 140px;   
+  background: url(assets/bus-r.png);
+  background-size: 100% 100%;
+  @include animation(bounce .5s ease infinite); 
+}
+
+
+.lanecontent .backdrop {
+   background: #000;   
+   width: 300px;   
+   
+}
+
+@include keyframes(swerve) {   
+  25% {  top: -15px; }
+  90% {  top: 5px; }    
+}
+
+.lanecontent .taxi {
+   background: #FF0;   
+   width: 80px;
+   height: 80%;
+   background: url(assets/taxi-r.png);
+   background-size: 100% 100%;
+   @include animation(swerve 2s ease infinite) ; 
+   top: 0px;
+  }
+
+
+.gap {
+  width: 40px;
+}
+
+
+.lane {
+  background: grey url(assets/lane.png) 0 0 repeat-x;
+  background-size: contain;
+  position: relative;
+  overflow: visible;
+}
+
+.edge {
+  background: brown url(assets/mud.png) 0 0 repeat-x;
+  background-size: cover;
+  
+}
+
+
+.divider {
+  height: 15px;
+  background: green url(assets/grass.png) 0 0 repeat-x;
+  background-size: cover;
+}
+
+.level {
+  display: none;
+}
