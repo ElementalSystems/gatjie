@@ -1,7 +1,7 @@
 
 body {
-  margin:0px;
-  padding:0px;
+  margin: 0;
+  padding: 1em 0;
   text-align:center;
   background: #333;
   font-family: "Open Sans", sans-serif;
@@ -55,9 +55,8 @@ body {
 
 .lanecontent {
   position: relative;
-  width: 3000px; // 600px x 5 ?
+  width: 9999px;
   // transition: transform 1s 3s;
-
 }
 
 .clearfix:before,
@@ -174,53 +173,155 @@ img {
   display: none;
 }
 
-// All the sizes together
+/* All the sizes together */
 
 .gameframe {
-  width: 600px;
+  width: 300px;
 }
 
 .lane {
-  height: 30px;
-}
-
-.divider {
   height: 15px;
 }
 
+.divider {
+  height: 7px;
+}
+
 .avatar {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 
 .avatarcontent {
-  top: -10px;
+  top: -5px;
 }
 
 .gap {
-  width: 40px;
+ width: 20px;
 }
 
 .gap2 {
-  width: 80px;
-}
-
-.gap4 {
-  width: 160px;
-}
-
-.bus {
- width: 90px;
-}
-
-.taxi {
- width: 50px;
-}
-
-.car {
  width: 40px;
 }
 
+.gap4 {
+ width: 80px;
+}
+
+.bus {
+  width: 45px;
+}
+
+.taxi {
+  width: 25px;
+}
+
+.car {
+  width: 20px;
+}
+
 .door {
- width: 50px;
+  width: 25px;
+}
+
+@media screen and (min-width: 550px) {
+  .gameframe {
+    width: 550px;
+  }
+
+  .lane {
+    height: 30px;
+  }
+
+  .divider {
+    height: 15px;
+  }
+
+  .avatar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .avatarcontent {
+    top: -10px;
+  }
+
+  .gap {
+   width: 40px;
+  }
+
+  .gap2 {
+   width: 80px;
+  }
+
+  .gap4 {
+   width: 160px;
+  }
+
+  .bus {
+  width: 90px;
+  }
+
+  .taxi {
+  width: 50px;
+  }
+
+  .car {
+  width: 40px;
+  }
+
+  .door {
+  width: 50px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .gameframe {
+    width: 900px;
+  }
+
+  .lane {
+    height: 45px;
+  }
+
+  .divider {
+    height: 23px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .avatarcontent {
+    top: -15px;
+  }
+
+  .gap {
+   width: 60px;
+  }
+
+  .gap2 {
+   width: 120px;
+  }
+
+  .gap4 {
+   width: 240px;
+  }
+
+  .bus {
+    width: 135px;
+  }
+
+  .taxi {
+    width: 75px;
+  }
+
+  .car {
+    width: 60px;
+  }
+
+  .door {
+    width: 75px;
+  }
 }
